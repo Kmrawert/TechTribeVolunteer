@@ -1,4 +1,5 @@
 
+//correct?
 function displayResults(events) {
     // First, empty the table
     $("tbody").empty();

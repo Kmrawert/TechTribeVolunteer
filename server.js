@@ -1,15 +1,39 @@
 const express = require("express");
 const path = require("path");
 const mongojs = require("mongojs");
+const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
+const morgan = require('morgan')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
 
-const events = require("./eventsModel.js");
+const dbConnection = require('./models')
+const events = require("./models/events.js");
+const user = require('./routes/users.js')
+//set up for users as well? require?
 
 mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+
+app.use(morgan('dev'))
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+)
+app.use(bodyParser.json())
+
+app.use(
+	session({
+		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
+		store: new MongoStore({ mongooseConnection: dbConnection }),
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+)
 
 // data into the array?
 var data = {
@@ -50,11 +74,14 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes
 app.use("/api", apiRoutes);
 
+app.use('/user', user)
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 
 app.get("/events", function(req, res) {
   db.events.find({}, function(err, found) {
