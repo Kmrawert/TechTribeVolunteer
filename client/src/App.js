@@ -6,8 +6,9 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { RecipeList, RecipeListItem } from "./components/RecipeList";
 import { Container, Row, Col } from "./components/Grid";
+import Form from "./components/Login/Form";
 
-class App extends Component {
+class Main extends Component {
   state = {
     recipes: [],
     recipeSearch: ""
@@ -90,6 +91,13 @@ class App extends Component {
       </div>
     );
   }
+}
+
+function App() {
+  return( <div>
+    <Main />
+    <Form />
+    </div>);
 }
 
 export default App;
