@@ -8,6 +8,7 @@ use volunteer
 use volunteer
 db.users.insert({name: 'x', username: 'x', password: 'x', interests:['x', 'x', 'x'] })
    ```
+   <!-- object - option one true, 2 false, etc. option n -->
 ```
 use volunteer
 db.events.insert({title: 'x', description: 'x', organization: 'x', interests:['x', 'x', 'x'], experience: 'x',  })

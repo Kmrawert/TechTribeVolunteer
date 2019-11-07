@@ -15,8 +15,11 @@ const userSchema = new Schema({
     //   },
 	password: { type: String, unique: true, required: true },
 	name: {type: String},
-	interests: {type: String} // update with checkboxes?
-
+	//interests: [{type: String}], // update with checkboxes?
+	interests: { 
+		one: {type: boolean, default: false},
+		two: {type: boolean, default: false},
+	}
 
 })
 
