@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+const passport = require('./passport');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -35,7 +36,12 @@ app.use(
 	})
 )
 
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+
+
 // data into the array?
+//need this?
 var data = {
   array: ["item1", "item2", "item3"],
   boolean: false,
@@ -71,7 +77,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Use apiRoutes
+// Use apiRoutes // from recipes, need?
 app.use("/api", apiRoutes);
 
 app.use('/user', user)

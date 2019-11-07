@@ -6,11 +6,11 @@ use volunteer
 
 ```
 use volunteer
-db.users.insert({name: 'x', email: 'x', password: 'x', interests:['x', 'x', 'x'] })
+db.users.insert({name: 'x', username: 'x', password: 'x', interests:['x', 'x', 'x'] })
    ```
 ```
 use volunteer
-db.events.insert({name: 'x', email: 'x', password: 'x', interests:['x', 'x', 'x'] })
+db.events.insert({title: 'x', description: 'x', organization: 'x', interests:['x', 'x', 'x'], experience: 'x',  })
    ```
   <!-- encript password? -->
   <!-- user input goes into database -->
