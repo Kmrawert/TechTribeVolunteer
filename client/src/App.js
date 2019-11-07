@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import API from "./utils/API";
-import { RecipeList, RecipeListItem } from "./components/RecipeList";
+import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 // components
 // import Signup from './components/sign-up'
@@ -75,10 +75,10 @@ class App extends Component {
               {!this.state.recipes.length ? (
                 <h1 className="text-center">No Recipes to Display</h1>
               ) : (
-                <RecipeList>
+                <ResultsList>
                   {this.state.recipes.map(recipe => {
                     return (
-                      <RecipeListItem
+                      <ResultsListItem
                         key={recipe.volumeInfo.title}
                         title={recipe.volumeInfo.title}
                         href={recipe.volumeInfo.previewLink}
@@ -87,7 +87,7 @@ class App extends Component {
                       />
                     );
                   })}
-                </RecipeList>
+                </ResultsList>
               )}
             </Col>
           </Row>

@@ -36,6 +36,10 @@ var eventsSchema = new Schema({
     type: Date, 
     //default: Date.now
   },
+  eventtime: {
+    type: Date, 
+    //default: Date.now
+  },
 });
 
 // This creates our model from the above schema, using mongoose's model method

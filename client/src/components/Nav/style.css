@@ -1,3 +1,6 @@
 nav.navbar {
   margin-bottom: 0;
 }
+nav.navbuttons {
+  float: right;
+}
