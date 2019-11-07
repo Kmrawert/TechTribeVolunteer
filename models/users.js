@@ -6,12 +6,17 @@ mongoose.promise = Promise
 // Define userSchema
 const userSchema = new Schema({
 
-    username: { type: String, unique: true, required: true },
+	username: { type: String,  
+		match: [/.+@.+\..+/, "Please enter a valid e-mail address"], 
+		unique: true, required: true },
     // email: {
     //     type: String,
     //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     //   },
-	password: { type: String, unique: true, required: true }
+	password: { type: String, unique: true, required: true },
+	name: {type: String},
+	interests: {type: String} // update with checkboxes?
+
 
 })
 

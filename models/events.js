@@ -17,6 +17,9 @@ var eventsSchema = new Schema({
   organization: {
     type: String, trim: true, required: "String is Required"
   },
+  experience: {
+    type: String, trim: true, required: "String is Required"
+  },
   zipcode: {
     type: Number, unique: true, required: true
   },
@@ -30,7 +33,7 @@ var eventsSchema = new Schema({
     //type: String
   },
   posteddate: {
-    type: Date, default: Date.now
+    type: Date, default: Date.now // time of post?
   },
   eventdate: {
     type: Date, 
