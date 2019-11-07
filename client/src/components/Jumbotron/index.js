@@ -3,13 +3,15 @@ import "./style.css";
 
 function Jumbotron() {
   return (
-    <div className="jumbotron text-center">
-      <h1>React Recipes</h1>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.recipepuppy.com/about/api/">
-        Powered by Recipe Puppy
-      </a>
+    <div className="jumbotron jumbotron-fluid">
+      <div className="card text-center w-100">
+        <div className="card-body">
+          <h1>Community Connect </h1>
+          <p className="card-text">Main Page Description</p>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default Jumbotron;
