@@ -1,5 +1,6 @@
 
 //correct?
+//move to components
 function displayResults(events) {
     // First, empty the table
     $("tbody").empty();
