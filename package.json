@@ -20,7 +20,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.1.2",
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "express-session": "^1.17.0",
+    "if-env": "^1.0.4",
+    "mongojs": "^3.1.0",
+    "mongoose": "^5.7.8",
+    "morgan": "^1.9.1"
   }
 }
