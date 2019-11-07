@@ -73,7 +73,7 @@ class App extends Component {
           <Row>
             <Col size="xs-12">
               {!this.state.recipes.length ? (
-                <h1 className="text-center">No Recipes to Display</h1>
+                <h4 className="text-center">No Volunteer Events to Display</h4>
               ) : (
                 <ResultsList>
                   {this.state.recipes.map(recipe => {
