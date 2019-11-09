@@ -9,16 +9,16 @@ var eventsSchema = new Schema({
   // `string` must be of type String. We "trim" it to remove any trailing white space
   // `string` is a required field, and a custom error message is thrown if it is not supplied
   title: {
-    type: String, trim: true, required: "String is Required"
+    type: String, trim: true, required: "Title is Required"
   },
   description: {
-    type: String, trim: true, required: "String is Required"
+    type: String, trim: true, required: "Description is Required"
   },
   organization: {
-    type: String, trim: true, required: "String is Required"
+    type: String, trim: true, required: "Organization is Required"
   },
   experience: {
-    type: String, trim: true, required: "String is Required"
+    type: String, trim: true, required: "Experience is Required"
   },
   zipcode: {
     type: Number, unique: true, required: true
@@ -27,7 +27,7 @@ var eventsSchema = new Schema({
     type: Number, unique: true, required: true
   },
   link: {
-    type: String, trim: true, required: "String is Required"
+    type: String, trim: true, required: "Link is Required"
   },
   image: {
     //type: String
