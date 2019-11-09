@@ -2,9 +2,11 @@ import React, { Component } from "react";
 
 class Form extends Component {
   // Setting the initial values of this.state.username and this.state.password
+ 
   state = {
     username: "",
-    password: ""
+    password: "",
+    redirectTo: null
   };
 
   // handle any changes to the input fields
