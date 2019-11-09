@@ -15,12 +15,6 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-require('jsx-node').install({
-  replace: {
-    preact: 'jsx-node',
-  }
- });
-
 import React, { Component } from "react";
 import {
   Grid,
