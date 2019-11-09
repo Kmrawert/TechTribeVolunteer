@@ -46,21 +46,20 @@ class UserProfile extends Component {
                     <FormInputs
                       ncols={["col-md-5", "col-md-3", "col-md-4"]}
                       properties={[
-                        {
-                          label: "Company (disabled)",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Company",
-                          defaultValue: "Creative Code Inc.",
-                          disabled: true
-                        },
+                    
                         {
                           label: "Username",
                           type: "text",
                           bsClass: "form-control",
                           placeholder: "Username",
                           defaultValue: "michael23"
-                        },
+                        }
+                      ]}
+                      />
+
+                    <FormInputs
+                      ncols={["col-md-6", "col-md-6"]}
+                      properties={[
                         {
                           label: "Email address",
                           type: "email",
@@ -69,38 +68,21 @@ class UserProfile extends Component {
                         }
                       ]}
                     />
+
                     <FormInputs
                       ncols={["col-md-6", "col-md-6"]}
                       properties={[
                         {
-                          label: "First name",
+                          label: "Name",
                           type: "text",
                           bsClass: "form-control",
-                          placeholder: "First name",
+                          placeholder: "First and Last Name",
                           defaultValue: "Mike"
                         },
-                        {
-                          label: "Last name",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Last name",
-                          defaultValue: "Andrew"
-                        }
+                        
                       ]}
                     />
-                    <FormInputs
-                      ncols={["col-md-12"]}
-                      properties={[
-                        {
-                          label: "Adress",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Home Adress",
-                          defaultValue:
-                            "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                        }
-                      ]}
-                    />
+                    
                     <FormInputs
                       ncols={["col-md-4", "col-md-4", "col-md-4"]}
                       properties={[
@@ -111,19 +93,6 @@ class UserProfile extends Component {
                           placeholder: "City",
                           defaultValue: "Mike"
                         },
-                        {
-                          label: "Country",
-                          type: "text",
-                          bsClass: "form-control",
-                          placeholder: "Country",
-                          defaultValue: "Andrew"
-                        },
-                        {
-                          label: "Postal Code",
-                          type: "number",
-                          bsClass: "form-control",
-                          placeholder: "ZIP Code"
-                        }
                       ]}
                     />
 
@@ -143,14 +112,14 @@ class UserProfile extends Component {
                 bgImage="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
              
                 name="Mike Andrew"
-                userName="michael24"
+                
                 description={
                   <span>
-                    "Lamborghini Mercy
+                    Blurb
                     <br />
-                    Your chick she so thirsty
+                    Blurb
                     <br />
-                    I'm in that two seat Lambo"
+                      Blurb
                   </span>
                 }
               />
