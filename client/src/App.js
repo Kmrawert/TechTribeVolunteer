@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+
+import { Route } from 'react-router-dom'
+import axios from 'axios'
+
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
@@ -7,6 +11,7 @@ import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 import { EventForm} from "./components/EventForm";
+
 
 import Form from "./components/Login/Form";
 // import Signup from './components/sign-up'
@@ -99,6 +104,84 @@ class Main extends Component {
   }
 }
 
+
+class LoginForm extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject)
+  }
+
+  getUser() {
+    axios.get('/user/').then(response => {
+      console.log('Get user response: ')
+      console.log(response.data)
+      if (response.data.user) {
+        console.log('Get User: There is a user saved in the server session: ')
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username
+        })
+      } else {
+        console.log('Get user: no user');
+        this.setState({
+          loggedIn: false,
+          username: null
+        })
+      }
+    })
+  }
+
+  //issues with routes
+
+  render() {
+    return (
+      <div className="App">
+       <Form
+              updateUser={this.updateUser}
+            />
+        {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
+        {/* greet user if logged in: */}
+        {this.state.loggedIn &&
+          <p>Join the party, {this.state.username}!</p>
+        }
+        {/* Routes to different components */}
+        {/* <Route
+          exact path="/"
+          component={Home} /> */}
+        {/* <Route
+          path="/login"
+          render={() =>
+            <Form
+              updateUser={this.updateUser}
+            />}
+        /> */}
+        {/* <Route
+          path="/signup"
+          render={() =>
+            <Signup />}
+        /> */}
+
+      </div>
+    );
+  }
+}
+
 function App() {
   return( <div>
     <Router>
@@ -111,86 +194,8 @@ function App() {
       </div>
   </Router>
     <Main />
-    <Form />
+    <LoginForm />
     </div>);
 }
 
 export default App;
-
-
-// class App extends Component {
-//   constructor() {
-//     super()
-//     this.state = {
-//       loggedIn: false,
-//       username: null
-//     }
-
-//     this.getUser = this.getUser.bind(this)
-//     this.componentDidMount = this.componentDidMount.bind(this)
-//     this.updateUser = this.updateUser.bind(this)
-//   }
-
-//   componentDidMount() {
-//     this.getUser()
-//   }
-
-//   updateUser(userObject) {
-//     this.setState(userObject)
-//   }
-
-//   getUser() {
-//     axios.get('/user/').then(response => {
-//       console.log('Get user response: ')
-//       console.log(response.data)
-//       if (response.data.user) {
-//         console.log('Get User: There is a user saved in the server session: ')
-
-//         this.setState({
-//           loggedIn: true,
-//           username: response.data.user.username
-//         })
-//       } else {
-//         console.log('Get user: no user');
-//         this.setState({
-//           loggedIn: false,
-//           username: null
-//         })
-//       }
-//     })
-//   }
-
-//   render() {
-//     return (
-//       <div className="App">
-
-//         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-//         {/* greet user if logged in: */}
-//         {this.state.loggedIn &&
-//           <p>Join the party, {this.state.username}!</p>
-//         }
-//         {/* Routes to different components */}
-//         <Route
-//           exact path="/"
-//           component={Home} />
-//         <Route
-//           path="/login"
-//           render={() =>
-//             <LoginForm
-//               updateUser={this.updateUser}
-//             />}
-//         />
-//         <Route
-//           path="/signup"
-//           render={() =>
-//             <Signup />}
-//         />
-
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-

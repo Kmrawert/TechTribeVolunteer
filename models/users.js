@@ -17,8 +17,8 @@ const userSchema = new Schema({
 	name: {type: String},
 	//interests: [{type: String}], // update with checkboxes?
 	interests: { 
-		one: {type: boolean, default: false},
-		two: {type: boolean, default: false},
+		one: {type: Boolean, default: false},
+		two: {type: Boolean, default: false},
 	}
 
 })
