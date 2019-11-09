@@ -10,14 +10,11 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
+import UserProfile from "./views/UserProfile";
 import { EventForm} from "./components/EventForm";
-
-
-import Form from "./components/Login/Form";
+import Form from "./components/Login/Form"
 // import Signup from './components/sign-up'
 // import Home from './components/home'
-
-
 
 class Main extends Component {
   state = {
@@ -49,6 +46,7 @@ class Main extends Component {
       <div>
         <Nav />
         <Jumbotron />
+        <UserProfile/>
         <Container>
           <Row>
             <Col size="md-12">
@@ -56,21 +54,9 @@ class Main extends Component {
                 <Container>
                   <Row>
                     <Col size="xs-9 sm-10">
-                      <Input
-                        name="recipeSearch"
-                        value={this.state.recipeSearch}
-                        onChange={this.handleInputChange}
-                        placeholder="Search For a Recipe"
-                      />
+                     
                     </Col>
                     <Col size="xs-3 sm-2">
-                      <Button
-                        onClick={this.handleFormSubmit}
-                        type="success"
-                        className="input-lg"
-                      >
-                        Search
-                      </Button>
                     </Col>
                   </Row>
                 </Container>
