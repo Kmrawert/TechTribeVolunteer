@@ -20,11 +20,7 @@ require('jsx-node').install({
     preact: 'jsx-node',
   }
  });
-require('jsx-node').install({
-  replace: {
-    preact: 'jsx-node',
-  }
- });
+
 import React, { Component } from "react";
 import {
   Grid,
