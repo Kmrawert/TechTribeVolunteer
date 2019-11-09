@@ -83,7 +83,8 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes // from recipes, need?
 app.use("/api", apiRoutes);
 
-app.use('/user', user)
+//app.use('/user', user)
+app.use('./models/user', user)
 
 // Send every request to the React app
 // Define any API routes before this runs
