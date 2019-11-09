@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-import Map from "../Map";
+// import Map from "components/Map/map.jsx";
+import Map from "../Map/map";
 import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 

@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
+import UserProfile from "./views/UserProfile"
 
 import Form from "./components/Login/Form";
 // import Signup from './components/sign-up'
@@ -40,6 +41,7 @@ class Main extends Component {
   render() {
     return (
       <div>
+        <UserProfile/>
         <Nav />
         <Jumbotron />
         <Container>
