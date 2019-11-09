@@ -17,6 +17,8 @@ const events = require("./models/events.js");
 const user = require('./routes/users.js')
 //set up for users as well? require?
 
+// testing
+
 mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
 app.use(morgan('dev'))
