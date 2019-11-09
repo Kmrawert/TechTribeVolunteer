@@ -6,11 +6,13 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
+import { EventForm} from "./components/EventForm";
 
 import Form from "./components/Login/Form";
 // import Signup from './components/sign-up'
-// import Navbar from './components/navbar'
 // import Home from './components/home'
+
+
 
 class Main extends Component {
   state = {
@@ -99,6 +101,15 @@ class Main extends Component {
 
 function App() {
   return( <div>
+    <Router>
+    <div>
+      <Nav />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/eventform" component={EventForm} />
+        <Route path="/volunteer" component={Volunteer} />
+      </div>
+  </Router>
     <Main />
     <Form />
     </div>);
