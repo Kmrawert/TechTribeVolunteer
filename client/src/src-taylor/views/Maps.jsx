@@ -15,6 +15,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+require('jsx-node').install({
+  replace: {
+    preact: 'jsx-node',
+  }
+ });
+ 
 import React from "react";
 // react components used to create a google map
 import {
