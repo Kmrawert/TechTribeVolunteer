@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 import $ from "jquery";
 import React, { Component, createRef } from "react";
