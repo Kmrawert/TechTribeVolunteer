@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 
-import React from "react";
-
-// This file exports the Input, TextArea, and FormBtn components
-
 export function Input(props) {
   return (
     <div className="form-group">
@@ -33,6 +29,9 @@ class EventForm extends Component {
         return (
             <div> 
             <h1>Event Form!!!!!!!!!!!!!!!</h1>
+            <Input />
+            <TextArea />
+            <FormBtn />
             </div>
         )
     } 
