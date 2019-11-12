@@ -25,7 +25,7 @@ const formData = [
 
 function EventForm() {
     return (
-        console.log(formdata)
+        console.log(formData)
     )
 }
 
