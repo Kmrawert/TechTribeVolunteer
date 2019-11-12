@@ -10,10 +10,9 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
-import UserProfile from "./views/UserProfile";
-//import { EventForm} from "./components/EventForm";
+import { EventForm } from "./components/EventForm";
 
-import {Router } from "routes"
+import { Router } from "routes"
 import { Home } from "routes"
 import {Login } from "routes"
 import { Volunteer } from "routes"
