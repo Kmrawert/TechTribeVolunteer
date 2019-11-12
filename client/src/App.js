@@ -10,7 +10,7 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
-import UserProfile from "./views/UserProfile";
+
 import { EventForm} from "./components/EventForm";
 import Form from "./components/Login/Form"
 // import Signup from './components/sign-up'
@@ -169,8 +169,9 @@ class LoginForm extends Component {
 }
 
 function App() {
-  return( <div>
-    <Router>
+  return( 
+  <div>
+    {/* <Router>
     <div>
       <Nav />
         <Route exact path="/" component={Home} />
@@ -178,7 +179,7 @@ function App() {
         <Route exact path="/eventform" component={EventForm} />
         <Route path="/volunteer" component={Volunteer} />
       </div>
-  </Router>
+  </Router> */}
     <Main />
     <LoginForm />
     </div>);
