@@ -3,8 +3,8 @@ mongoose.Promise = global.Promise
 
 //27017 is the default mongoDB port
 
-//const uri = process.env.MONGODB_URI || process.env.LOCALHOST_URI
-const uri = 'mongodb://localhost:27017/volunteer' 
+const uri = process.env.MONGODB_URI || process.env.LOCALHOST_URI || 'mongodb://localhost:27017/volunteer' 
+//const uri = 'mongodb://localhost:27017/volunteer' 
 
 mongoose.connect(uri).then(
     () => {  

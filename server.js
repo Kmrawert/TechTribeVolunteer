@@ -19,9 +19,16 @@ const userRoute = require('./routes/users.js')
 //const populate = require('./routes/populate.js')
 //set up for users as well? require?
 
-// testing
 
-mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+
+// testing
+//mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+
+mongoose.connect(MONGODB_URI);
+
 
 app.use(morgan('dev'))
 app.use(
@@ -54,7 +61,7 @@ var dataEvents = {
   image: "x",
   posteddate: Date,
   eventdate: Date,
-  eventtime: "3:30pm"
+  // eventtime: "3:30pm"
 };
 
 var dataUsers = {
