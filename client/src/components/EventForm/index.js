@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 import $ from "jquery";
 import React, { Component, createRef } from "react";
@@ -26,7 +25,7 @@ const formData = [
 
 function EventForm() {
     return (
-        console.log(formdata)
+        console.log(formData)
     )
 }
 

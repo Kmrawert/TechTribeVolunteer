@@ -37,11 +37,11 @@ var eventsSchema = new Schema({
   },
   eventdate: {
     type: Date, 
-    //default: Date.now
+    min: '2019-11-20',
+    max: '2023-12-31'
   },
   eventtime: {
-    type: Date, 
-    //default: Date.now
+    type: String, 
   },
 });
 
