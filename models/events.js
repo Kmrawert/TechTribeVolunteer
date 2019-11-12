@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var moment = require("moment");
 
 var Schema = mongoose.Schema;
 
@@ -21,7 +22,13 @@ var eventsSchema = new Schema({
     type: String, trim: true, required: "Experience is Required"
   },
   zipcode: {
-    type: Number, unique: true, required: true
+    type: Number, unique: true, required: true,
+    validate: [
+			function(input) {
+			  return input.length = 5;
+			},
+			"Zip Code is incorrect"
+		  ],
   },
   numberofspots: {
     type: Number, unique: true, required: true
@@ -33,16 +40,16 @@ var eventsSchema = new Schema({
     //type: String
   },
   posteddate: {
-    type: Date, default: Date.now // time of post?
+    type: Date, default: Date.moment().format("MMM Do YY")  // time of post?
   },
   eventdate: {
-    type: Date, 
-    min: '2019-11-20',
-    max: '2023-12-31'
+    type: Date, default: Date.moment().format('MMMM Do YYYY, h:mm a')
+    // min: '2019-11-20',
+    // max: '2023-12-31'
   },
-  eventtime: {
-    type: String, 
-  },
+  // eventtime: {
+  //   type: String, 
+  // },
 });
 
 // This creates our model from the above schema, using mongoose's model method

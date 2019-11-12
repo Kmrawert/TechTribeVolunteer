@@ -182,7 +182,7 @@ function App() {
       </div>
   </Router> */} */}
     <Main />
-    <LoginForm />
+    {/* <LoginForm /> */}
     </div>);
 }
 
