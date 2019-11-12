@@ -11,10 +11,11 @@ import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 
-import { EventForm} from "./components/EventForm";
-import Form from "./components/Login/Form"
-// import Signup from './components/sign-up'
-// import Home from './components/home'
+import { Router } from "react-router-dom"
+import Home  from "./components/Home"
+// import { Login } from "routes"
+// import { Volunteer } from "routes"
+// import { EventForm } from "routes"
 
 class Main extends Component {
   state = {
@@ -50,7 +51,7 @@ class Main extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <form>
+              <Login>
                 <Container>
                   <Row>
                     <Col size="xs-9 sm-10">
@@ -60,7 +61,7 @@ class Main extends Component {
                     </Col>
                   </Row>
                 </Container>
-              </form>
+              </Login>
             </Col>
           </Row>
           <Row>
@@ -91,7 +92,7 @@ class Main extends Component {
 }
 
 
-class LoginForm extends Component {
+class Login extends Component {
   constructor() {
     super()
     this.state = {
@@ -138,9 +139,9 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="App">
-       <Form
+       {/* <Form
               updateUser={this.updateUser}
-            />
+            /> */}
         {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
@@ -176,8 +177,8 @@ function App() {
       <Nav />
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        {/* <Route exact path="/eventform" component={EventForm} /> */}
-        {/* <Route path="/volunteer" component={Volunteer} />
+        <Route exact path="/eventform" component={EventForm} />
+        <Route path="/volunteer" component={Volunteer} />
       </div>
   </Router> */} */}
     <Main />
