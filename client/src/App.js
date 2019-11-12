@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-
-import { Route } from 'react-router-dom'
 import axios from 'axios'
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+  import Home  from "./components/Home"
+  import Login from "./components/Login"
+  import Volunteer from "./components/Volunteer"
+  import EventForm from "./components/EventForm"
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
@@ -11,13 +13,7 @@ import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 
-import { Router } from "react-router-dom"
-import Home  from "./components/Home"
-// import { Login } from "routes"
-// import { Volunteer } from "routes"
-// import { EventForm } from "routes"
-
-class Main extends Component {
+class App extends Component {
   state = {
     recipes: [],
     recipeSearch: ""
@@ -47,25 +43,16 @@ class Main extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        
         <Container>
-          <Row>
-            <Col size="md-12">
-              <Login>
-                <Container>
-                  <Row>
-                    <Col size="xs-9 sm-10">
-                     
-                    </Col>
-                    <Col size="xs-3 sm-2">
-                    </Col>
-                  </Row>
-                </Container>
-              </Login>
-            </Col>
-          </Row>
-          <Row>
-            <Col size="xs-12">
+    <Router>
+    <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/EventForm" component={EventForm} />
+        <Route path="/Volunteer" component={Volunteer} />
+      </div>
+  </Router> 
+            {/* <Col size="xs-12">
               {!this.state.recipes.length ? (
                 <h4 className="text-center">No Volunteer Events to Display</h4>
               ) : (
@@ -84,106 +71,10 @@ class Main extends Component {
                 </ResultsList>
               )}
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     );
   }
 }
-
-
-class Login extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: false,
-      username: null
-    }
-
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
-  }
-
-  componentDidMount() {
-    this.getUser()
-  }
-
-  updateUser(userObject) {
-    this.setState(userObject)
-  }
-
-  getUser() {
-    axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
-      if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
-
-        this.setState({
-          loggedIn: true,
-          username: response.data.user.username
-        })
-      } else {
-        console.log('Get user: no user');
-        this.setState({
-          loggedIn: false,
-          username: null
-        })
-      }
-    })
-  }
-
-  //issues with routes
-
-  render() {
-    return (
-      <div className="App">
-       {/* <Form
-              updateUser={this.updateUser}
-            /> */}
-        {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
-        {/* greet user if logged in: */}
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
-        {/* Routes to different components */}
-        {/* <Route
-          exact path="/"
-          component={Home} /> */}
-        {/* <Route
-          path="/login"
-          render={() =>
-            <Form
-              updateUser={this.updateUser}
-            />}
-        /> */}
-        {/* <Route
-          path="/signup"
-          render={() =>
-            <Signup />}
-        /> */}
-
-      </div>
-    );
-  }
-}
-
-function App() {
-  return( 
-  <div>
-    {/* <Router>
-    <div>
-      <Nav />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/eventform" component={EventForm} />
-        <Route path="/volunteer" component={Volunteer} />
-      </div>
-  </Router> */} */}
-    <Main />
-    {/* <LoginForm /> */}
-    </div>);
-}
-
 export default App;
