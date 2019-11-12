@@ -46,7 +46,7 @@ class Main extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        <UserProfile/>
+        
         <Container>
           <Row>
             <Col size="md-12">
