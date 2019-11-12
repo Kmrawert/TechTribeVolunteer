@@ -20,8 +20,13 @@ const userRoute = require('./routes/users.js')
 //set up for users as well? require?
 
 // testing
+//mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
-mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+
+mongoose.connect(MONGODB_URI);
+
 
 app.use(morgan('dev'))
 app.use(
