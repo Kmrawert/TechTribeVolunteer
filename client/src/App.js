@@ -176,10 +176,10 @@ function App() {
       <Nav />
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/eventform" component={EventForm} />
-        <Route path="/volunteer" component={Volunteer} />
+        {/* <Route exact path="/eventform" component={EventForm} /> */}
+        {/* <Route path="/volunteer" component={Volunteer} />
       </div>
-  </Router> */}
+  </Router> */} */}
     <Main />
     <LoginForm />
     </div>);
