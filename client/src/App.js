@@ -170,8 +170,9 @@ class Login extends Component {
 }
 
 function App() {
-  return( <div>
-    <Router>
+  return( 
+  <div>
+    {/* <Router>
     <div>
       <Nav />
         <Route exact path="/" component={Home} />
@@ -179,7 +180,7 @@ function App() {
         <Route exact path="/eventform" component={EventForm} />
         <Route path="/volunteer" component={Volunteer} />
       </div>
-  </Router>
+  </Router> */} */}
     <Main />
     <LoginForm />
     </div>);
