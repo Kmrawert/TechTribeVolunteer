@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-
-import { Route } from 'react-router-dom'
 import axios from 'axios'
-
+import { Router } from "react-router-dom"
+import Home  from "./components/Home"
+import Login from "./components/Login"
+import Volunteer from "./components/Volunteer"
+import EventForm from "./components/EventForm"
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
@@ -10,12 +12,6 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
-
-import { Router } from "react-router-dom"
-import Home  from "./components/Home"
-// import { Login } from "routes"
-// import { Volunteer } from "routes"
-// import { EventForm } from "routes"
 
 class Main extends Component {
   state = {
@@ -47,7 +43,6 @@ class Main extends Component {
       <div>
         <Nav />
         <Jumbotron />
-        
         <Container>
           <Row>
             <Col size="md-12">
@@ -90,84 +85,61 @@ class Main extends Component {
     );
   }
 }
+// class Login extends Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       loggedIn: false,
+//       username: null
+//     }
 
+//     this.getUser = this.getUser.bind(this)
+//     this.componentDidMount = this.componentDidMount.bind(this)
+//     this.updateUser = this.updateUser.bind(this)
+//   }
 
-class Login extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: false,
-      username: null
-    }
+  // componentDidMount() {
+  //   this.getUser()
+  // }
 
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
-  }
+  // updateUser(userObject) {
+  //   this.setState(userObject)
+  // }
 
-  componentDidMount() {
-    this.getUser()
-  }
+  // getUser() {
+  //   axios.get('/user/').then(response => {
+  //     console.log('Get user response: ')
+  //     console.log(response.data)
+  //     if (response.data.user) {
+  //       console.log('Get User: There is a user saved in the server session: ')
 
-  updateUser(userObject) {
-    this.setState(userObject)
-  }
+  //       this.setState({
+  //         loggedIn: true,
+  //         username: response.data.user.username
+  //       })
+  //     } else {
+  //       console.log('Get user: no user');
+  //       this.setState({
+  //         loggedIn: false,
+  //         username: null
+  //       })
+  //     }
+  //   })
+  // }
+//   render() {
+//     return (
+//       <div className="App">
+//        <Login updateUser= {this.updateUser} />
+//         {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
+//         {/* greet user if logged in: */}
+//         {this.state.loggedIn &&
+//           <p>Join the party, {this.state.username}!</p>
+//         }
 
-  getUser() {
-    axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
-      if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
-
-        this.setState({
-          loggedIn: true,
-          username: response.data.user.username
-        })
-      } else {
-        console.log('Get user: no user');
-        this.setState({
-          loggedIn: false,
-          username: null
-        })
-      }
-    })
-  }
-
-  //issues with routes
-
-  render() {
-    return (
-      <div className="App">
-       {/* <Form
-              updateUser={this.updateUser}
-            /> */}
-        {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
-        {/* greet user if logged in: */}
-        {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
-        }
-        {/* Routes to different components */}
-        {/* <Route
-          exact path="/"
-          component={Home} /> */}
-        {/* <Route
-          path="/login"
-          render={() =>
-            <Form
-              updateUser={this.updateUser}
-            />}
-        /> */}
-        {/* <Route
-          path="/signup"
-          render={() =>
-            <Signup />}
-        /> */}
-
-      </div>
-    );
-  }
-}
+//       </div>
+//     );
+//   }
+// }
 
 function App() {
   return( 
@@ -182,7 +154,7 @@ function App() {
       </div>
   </Router> */} */}
     <Main />
-    <LoginForm />
+    <Login />
     </div>);
 }
 

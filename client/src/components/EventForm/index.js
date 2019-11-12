@@ -6,7 +6,6 @@ class EventForm extends Component {
             <h1>Event Form!!!!!!!!!!!!!!!</h1>
         )
     } 
-
 }
 
 export default EventForm; 
