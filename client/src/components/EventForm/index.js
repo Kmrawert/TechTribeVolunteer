@@ -1,32 +1,12 @@
-import "./style.css";
-import $ from "jquery";
-import React, { Component, createRef } from "react";
-import ReactDOM from "react-dom";
-import "./styles.css";
+import React, { Component } from "react";
 
-window.jQuery = $;
-window.$ = $;
+class EventForm extends Component {
+    render() {
+        return (
+            <h1>Event Form!!!!!!!!!!!!!!!</h1>
+        )
+    } 
 
-require("jquery-ui-sortable");
-require("formBuilder");
-
-const formData = [
-  {
-    type: "header",
-    subtype: "h1",
-    label: "formBuilder in React"
-  },
-  {
-    type: "paragraph",
-    label: "This is a demonstration of formBuilder running in a React project."
-  }
-];
-
-
-function EventForm() {
-    return (
-        console.log(formData)
-    )
 }
 
-export default EventForm;
+export default EventForm; 

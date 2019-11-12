@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "axios": "^0.18.1",
+    "babel-eslint": "^10.0.3",
     "bcryptjs": "^2.4.3",
     "bootstrap": "3.4.1",
     "chartist": "0.10.1",
