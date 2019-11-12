@@ -14,8 +14,12 @@ const apiRoutes = require("./routes/apiRoutes");
 
 const dbConnection = require('./models')
 const events = require("./models/events.js");
-const user = require('./routes/users.js')
+const users = require('./models/users.js')
+const userRoute = require('./routes/users.js')
+//const populate = require('./routes/populate.js')
 //set up for users as well? require?
+
+// testing
 
 mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
@@ -39,20 +43,34 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
-// data into the array?
-//need this?
-var data = {
-  array: ["item1", "item2", "item3"],
-  boolean: false,
-  string:
-    "\"Don't worry if it doesn't work right. If everything did, you'd be out of a job\" - Mosher's Law of Software Engineering",
-  number: 42
+var dataEvents = {
+  title: "test",
+  description: "x",
+  organization: "x",
+  experience: "x",
+  zipcode: 60611,
+  numberofspots: 10,
+  link: "x",
+  image: "x",
+  posteddate: Date,
+  eventdate: Date,
+  eventtime: "3:30pm"
 };
-// 
+
+var dataUsers = {
+    username: "molly_patterson@test.com",
+    password: "testing",
+    interests: { 
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+    }
+}
 
 const databaseUrl = "volunteer";
-const collections = ["users"];
+const collections = ["users", "events"];
 const db = mongojs(databaseUrl, collections);
 // list all collections here or diff for each table?
 
@@ -60,7 +78,7 @@ db.on("error", function(error) {
   console.log("Database Error:", error);
 });
 
-events.create(data)
+events.create(dataEvents)
   .then(function(dbEvents) {
     // If saved successfully, print the new Example document to the console
     console.log(dbEvents);
@@ -68,6 +86,14 @@ events.create(data)
   .catch(function(err) {
     console.log(err.message);
   });
+
+users.create(dataUsers)
+.then(function(dbUsers) {
+  console.log(dbUsers);
+})
+.catch(function(err) {
+  console.log(err.message);
+});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -80,7 +106,8 @@ if (process.env.NODE_ENV === "production") {
 // Use apiRoutes // from recipes, need?
 app.use("/api", apiRoutes);
 
-app.use('/user', user)
+//app.use('/user', user)
+app.use('./models/user', userRoute)
 
 // Send every request to the React app
 // Define any API routes before this runs

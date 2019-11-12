@@ -13,12 +13,21 @@ const userSchema = new Schema({
     //     type: String,
     //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
     //   },
-	password: { type: String, unique: true, required: true },
+	password: { type: String, unique: true, required: true,
+		validate: [
+			function(input) {
+			  return input.length >= 6;
+			},
+			"Password needs to be at least 6 characters long."
+		  ]},
 	name: {type: String},
 	//interests: [{type: String}], // update with checkboxes?
 	interests: { 
-		one: {type: boolean, default: false},
-		two: {type: boolean, default: false},
+		one: {type: Boolean, default: false},
+		two: {type: Boolean, default: false},
+		three: {type: Boolean, default: false},
+		four: {type: Boolean, default: false},
+		five: {type: Boolean, default: false},
 	}
 
 })
@@ -46,5 +55,5 @@ userSchema.pre('save', function (next) {
 	}
 })
 
-const User = mongoose.model('User', userSchema)
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;
