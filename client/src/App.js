@@ -11,8 +11,15 @@ import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 import UserProfile from "./views/UserProfile";
-import { EventForm} from "./components/EventForm";
-import Form from "./components/Login/Form"
+//import { EventForm} from "./components/EventForm";
+
+import {Router } from "routes"
+import { Home } from "routes"
+import {Login } from "routes"
+import { Volunteer } from "routes"
+
+
+import Form from "./components/Login/Form";
 // import Signup from './components/sign-up'
 // import Home from './components/home'
 
@@ -175,7 +182,7 @@ function App() {
       <Nav />
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/eventform" component={EventForm} />
+        {/* <Route exact path="/eventform" component={EventForm} /> */}
         <Route path="/volunteer" component={Volunteer} />
       </div>
   </Router>
