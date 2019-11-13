@@ -40,10 +40,10 @@ var eventsSchema = new Schema({
     //type: String
   },
   posteddate: {
-    type: Date, default: Date.moment().format("MMM Do YY")  // time of post?
+    type: Date, default: moment().format("MMM Do YY")  // time of post?
   },
   eventdate: {
-    type: Date, default: Date.moment().format('MMMM Do YYYY, h:mm a')
+    type: Date, default: moment().format('MMMM Do YYYY, h:mm a')
     // min: '2019-11-20',
     // max: '2023-12-31'
   },
