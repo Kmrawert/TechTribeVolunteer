@@ -1,13 +1,15 @@
 import React from "react";
 import "./style.css";
 
-function Jumbotron() {
+function Jumbotron(props) {
   return (
     <div className="jumbotron jumbotron-fluid">
       <div className="title card text-center w-100 ">
         <div className="card-body">
-          <h1>Community Connect </h1>
-          {/* <p className="card-text">Main Page Description</p> */}
+          <h1>Sign up to Today! </h1>
+          {props.children}
+
+          
         </div>
       </div>
     </div>

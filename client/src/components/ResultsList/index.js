@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 // import Map from "components/Map/map.jsx";
-import Map from "../Map/map";
+// import Map from "../Map/map";
 import Thumbnail from "../Thumbnail";
 import { Container, Row, Col } from "../Grid";
 
@@ -41,7 +41,7 @@ export function ResultsListItem({
             </a>
           </Col>
           <Col size="xs-2 sm-4">
-            <Map> </Map>
+            {/* <Map> </Map> */}
           </Col>
         </Row>
       </Container>
