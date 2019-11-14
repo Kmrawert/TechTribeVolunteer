@@ -12,6 +12,7 @@ import Button from "./components/Button";
 import API from "./utils/API";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
+import Userprofile from "./components/Userprofile/Userprofile"
 
 class App extends Component {
   state = {
@@ -43,6 +44,7 @@ class App extends Component {
       <div>
         <Nav />
         <Jumbotron />
+        <Userprofile/>
         <Container>
     <Router>
     <div>

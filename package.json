@@ -1,58 +1,22 @@
 {
-  "name": "mern",
+  "name": "techtribevolunteer",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "email.js",
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kmrawert/TechTribeVolunteer.git"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@types/googlemaps": "3.30.19",
-    "@types/markerclustererplus": "2.1.33",
-    "@types/react": "16.8.13",
-    "concurrently": "^4.1.2",
-    "nodemon": "^1.18.7",
-    "typescript": "3.4.3"
+  "bugs": {
+    "url": "https://github.com/Kmrawert/TechTribeVolunteer/issues"
   },
-  "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
-    "axios": "^0.18.1",
-    "babel-eslint": "^10.0.3",
-    "bcryptjs": "^2.4.3",
-    "bootstrap": "3.4.1",
-    "chartist": "0.10.1",
-    "connect-mongo": "^3.1.2",
-    "express": "^4.17.1",
-    "express-session": "^1.17.0",
-    "express-sessions": "^1.0.6",
-    "formBuilder": "^3.2.5",
-    "if-env": "^1.0.4",
-    "jquery": "^3.4.1",
-    "jquery-ui-sortable": "^1.0.0",
-    "moment": "^2.24.0",
-    "mongojs": "^3.1.0",
-    "mongoose": "^5.7.10",
-    "morgan": "^1.9.1",
-    "node-sass": "4.12.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "react": "^16.8.6",
-    "react-bootstrap": "^0.32.4",
-    "react-chartist": "0.13.3",
-    "react-dom": "16.8.6",
-    "react-google-maps": "9.4.5",
-    "react-notification-system": "0.2.17",
-    "react-router": "5.0.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.2.0",
-    "react-toggle": "4.0.2"
-  }
+  "homepage": "https://github.com/Kmrawert/TechTribeVolunteer#readme"
 }
