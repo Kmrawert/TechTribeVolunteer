@@ -25,7 +25,7 @@ const userRoute = require('./routes/users.js')
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+process.env.MONGODB_URI || "mongodb://heroku_pncrmznv:lf7o7n7qfbqssgsoi7te6h38po@ds061199.mlab.com:61199/heroku_pncrmznv";
 
 mongoose.connect(MONGODB_URI);
 
