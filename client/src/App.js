@@ -40,18 +40,21 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div>
-        <Nav />
-        <Jumbotron />
-        <Container>
-    <Router>
+    
+          <Nav />
+          <Jumbotron />
+          <Container>
+   
     <div>
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/EventForm" component={EventForm} />
         <Route path="/Volunteer" component={Volunteer} />
+        <Route path="*" component={Login} />
       </div>
-  </Router> 
+ 
             {/* <Col size="xs-12">
               {!this.state.recipes.length ? (
                 <h4 className="text-center">No Volunteer Events to Display</h4>
@@ -74,6 +77,7 @@ class App extends Component {
           </Row> */}
         </Container>
       </div>
+      </Router> 
     );
   }
 }
