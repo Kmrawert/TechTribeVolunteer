@@ -39,6 +39,8 @@ app.use(
 )
 app.use(bodyParser.json())
 
+//test
+
 app.use(
 	session({
 		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
