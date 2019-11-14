@@ -1,101 +1,68 @@
-# Community Connect - Volunteering Website
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+## Available Scripts
 
-Community Connect is a volunteer website where users can post volunteer events and sign up for volunteer events in their area.
+In the project directory, you can run:
 
-  - 
-  - 
-  - 
+### `yarn start`
 
-# User Functionality / Profile
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-  - 
-  - 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
+### `yarn test`
 
-You can also:
-  - 
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
 
-# Posting Events
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-  - 
-  - 
-# Signing up for Events
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-  - 
-  - 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Tech
+### `yarn eject`
 
-Community Connect uses a number of technologies to work properly:
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Installation
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Community Connect requires [Node.js](https://nodejs.org/) v4+ to run.
+## Learn More
 
-Install the dependencies and devDependencies and start the server.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-```sh
-$ cd TechTribeVolunteer
-$ npm install
-$ npm start
-```
-//
-### Plugins
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+### Code Splitting
 
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-//
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Development
+### Analyzing the Bundle Size
 
-```
-#### Building for source
-For production release:
-```sh
-$ gulp build --prod
-```
-Generating pre-built zip archives for distribution:
-```sh
-$ gulp build dist --prod
-```
-### Contributors
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-Katie - 
-Taylor - 
-Trevor - 
-Molly - User Validation and Database
+### Making a Progressive Web App
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Todos
+### Advanced Configuration
 
- - 
- - 
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### XD Demo
+### Deployment
 
- - 
- - 
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### Screen Shots
+### `yarn build` fails to minify
 
- - 
- - 
-
- Community Connect is open source on [GitHub][https://github.com/Kmrawert/TechTribeVolunteer] and linked on [Heroku][##]
-
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
