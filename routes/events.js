@@ -17,4 +17,16 @@ router.post("/events", function(req, res) {
   });
 
 
+  
+// app.get("/events", function(req, res) {
+//   db.events.find({}, function(err, found) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     else {
+//       res.json(found);
+//     }
+//   });
+// });
+
 module.exports = router
