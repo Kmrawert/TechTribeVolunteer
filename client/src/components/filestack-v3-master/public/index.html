@@ -57,7 +57,7 @@
     <script>
      jQuery(document).ready(function() {
   var pickerOptions={ accept: 'image/*',  }
-  var apiKey='AyOZiuxpTGaWR1y2npYnNz';
+  var apiKey='';
   var client = filestack.init(apiKey);
   jQuery("#upload-btn").click(function() {
       client.pick(pickerOptions).then(function(result) { console.log(JSON.stringify(result.filesUploaded)) });
