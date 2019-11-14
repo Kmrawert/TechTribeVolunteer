@@ -39,14 +39,14 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use(
-	session({
-		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false, //required
-		saveUninitialized: false //required
-	})
-)
+// app.use(
+// 	session({
+// 		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
+// 		store: new MongoStore({ mongooseConnection: dbConnection }),
+// 		resave: false, //required
+// 		saveUninitialized: false //required
+// 	})
+// )
 
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
