@@ -14,14 +14,22 @@ const apiRoutes = require("./routes/apiRoutes");
 
 const dbConnection = require('./models')
 const events = require("./models/events.js");
-const users = require('./models/users.js')
+// const users = require('./models/users.js')
 const userRoute = require('./routes/users.js')
 //const populate = require('./routes/populate.js')
 //set up for users as well? require?
 
-// testing
 
-mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+
+// testing
+//mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
+
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://heroku_pncrmznv:lf7o7n7qfbqssgsoi7te6h38po@ds061199.mlab.com:61199/heroku_pncrmznv";
+  // process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+ 
+mongoose.connect(MONGODB_URI);
+
 
 app.use(morgan('dev'))
 app.use(
@@ -54,20 +62,8 @@ var dataEvents = {
   image: "x",
   posteddate: Date,
   eventdate: Date,
-  eventtime: "3:30pm"
+  // eventtime: "3:30pm"
 };
-
-var dataUsers = {
-    username: "molly_patterson@test.com",
-    password: "testing",
-    interests: { 
-      one: false,
-      two: false,
-      three: false,
-      four: false,
-      five: false,
-    }
-}
 
 const databaseUrl = "volunteer";
 const collections = ["users", "events"];
@@ -87,13 +83,7 @@ events.create(dataEvents)
     console.log(err.message);
   });
 
-users.create(dataUsers)
-.then(function(dbUsers) {
-  console.log(dbUsers);
-})
-.catch(function(err) {
-  console.log(err.message);
-});
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

@@ -4,6 +4,19 @@ const User = require('../models/users')
 const passport = require('../passport')
 
 
+// var dataUsers = {
+//     username: "molly_patterson@test.com",
+//     password: "testing",
+//     interests: { 
+//       one: false,
+//       two: false,
+//       three: false,
+//       four: false,
+//       five: false,
+//     }
+// }
+
+
 router.post('/', (req, res) => {
     console.log('user signup');
 
@@ -45,6 +58,16 @@ router.post(
         };
         res.send(userInfo);
     }
+    //,
+
+    //put in route, create what user inputs
+// User.create(dataUsers)
+// .then(function(dbUsers) {
+//   console.log(dbUsers);
+// })
+// .catch(function(err) {
+//   console.log(err.message);
+// })
 )
 
 router.get('/', (req, res, next) => {
