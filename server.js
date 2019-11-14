@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const mongojs = require("mongojs");
+// const mongojs = require("mongojs");
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
 const morgan = require('morgan')
@@ -65,14 +65,14 @@ var dataEvents = {
   // eventtime: "3:30pm"
 };
 
-const databaseUrl = "volunteer";
-const collections = ["users", "events"];
-const db = mongojs(databaseUrl, collections);
+// const databaseUrl = "volunteer";
+// const collections = ["users", "events"];
+// const db = mongojs(databaseUrl, collections);
 // list all collections here or diff for each table?
 
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
 
 events.create(dataEvents)
   .then(function(dbEvents) {
@@ -82,8 +82,6 @@ events.create(dataEvents)
   .catch(function(err) {
     console.log(err.message);
   });
-
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -103,6 +101,7 @@ app.use("/api", apiRoutes);
 //app.use('/user', user)
 app.use('./models/user', userRoute);
 
+
 app.get("/api/events", function(req, res) {
   db.events.find({}, function(err, found) {
     if (err) {
@@ -119,10 +118,6 @@ app.get("/api/events", function(req, res) {
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-
-
-
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
