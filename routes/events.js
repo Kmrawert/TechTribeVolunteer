@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Events = require('../models/events')
 
-
 router.post("/events", function(req, res) {
     // Create a new note and pass the req.body to the entry
     Events.create(req.body)
@@ -16,7 +15,16 @@ router.post("/events", function(req, res) {
       });
   });
 
-
+router.get("/events/:zipcode", function(req, res){
+  Events.find({zipcode: req.params.zipcode})
+  .populate("User")
+  .sort({eventdate: -1})
+  .then(function(dbEvent){
+    res.json(dbEvent)
+    //if then for zip
+    if (dbEvent) 
+  })
+})
   
 // app.get("/events", function(req, res) {
 //   db.events.find({}, function(err, found) {

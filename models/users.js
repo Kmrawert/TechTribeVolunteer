@@ -21,6 +21,7 @@ const userSchema = new Schema({
 			"Password needs to be at least 6 characters long."
 		  ]},
 	name: {type: String},
+
 	//interests: [{type: String}], // update with checkboxes?
 	interests: { 
 		one: {type: Boolean, default: false},
@@ -28,7 +29,9 @@ const userSchema = new Schema({
 		three: {type: Boolean, default: false},
 		four: {type: Boolean, default: false},
 		five: {type: Boolean, default: false},
-	}
+	},
+	userattendee: {type: Schema.Types.ObjectId, ref: "Event"},
+	usercreator: {type: Schema.Types.ObjectId, ref: "Event"}
 
 })
 
