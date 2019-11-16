@@ -1,18 +1,19 @@
 import React from "react";
 import "./style.css";
+import {NavLink} from 'react-router-dom';
 
 function Nav() {
   return (
     <div>
-    <nav className="navbar sticky-top navbar-dark bg-dark">
-      <a className="navbar-brand" href="/Home"> Community Connect </a>
-      <div className="navButtons">
-      <a className="navbar-brand" href="/Login"> Sign Up </a>
-      <a className="navbar-brand" href="/Login"> Login </a>
-      <a className="navbar-brand" href="/EventForm"> Create Event </a>
-      <a className="navbar-brand" href="/Volunteer"> Volunteer </a>
-      </div>
-    </nav>
+      <nav className="navbar sticky-top navbar-dark bg-dark">
+        <NavLink className="navbar-brand" to="/Home"> Community Connect </NavLink>
+        <div className="navButtons">
+          <NavLink className="navbar-brand" to="/Login"> Sign Up </NavLink>
+          <NavLink className="navbar-brand" to="/Login"> Login </NavLink>
+          <NavLink className="navbar-brand" to="/EventForm"> Create Event </NavLink>
+          <NavLink className="navbar-brand" to="/Volunteer"> Volunteer </NavLink>
+        </div>
+      </nav>
     </div>
   );
 }
