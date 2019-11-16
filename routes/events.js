@@ -22,7 +22,13 @@ router.get("/events/:zipcode", function(req, res){
   .then(function(dbEvent){
     res.json(dbEvent)
     //if then for zip
-    if (dbEvent) 
+    if (dbEvent === zipcode) {
+      res.json(dbEvent)
+    }
+    else {
+      //seach within 3 up or 3 down of zip until have 10 search results
+
+    }
   })
 })
   
