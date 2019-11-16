@@ -34,17 +34,17 @@ var eventsSchema = new Schema({
     type: Number, unique: true, required: true
   },
   link: {
-    type: String, trim: true, required: "Link is Required"
+    type: String, required: "Link is Required"
   },
   image: {
-    //type: String
+    type: String
   },
   posteddate: {
-    type: Date, default: Date.now  // time of post?
+    type: Date, default: new Date() // time of post?
     //use moment on front end, save as string
   },
   eventdate: {
-    type: Date, default: moment().format('MMMM Do YYYY, h:mm a')
+    type: Date, default: new Date()
     // min: '2019-11-20',
     // max: '2023-12-31'
   },
