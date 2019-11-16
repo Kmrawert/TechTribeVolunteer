@@ -27,7 +27,6 @@ var MONGODB_URI =
  
 mongoose.connect(MONGODB_URI);
 
-
 app.use(morgan('dev'))
 app.use(
 	bodyParser.urlencoded({
@@ -100,7 +99,6 @@ function populateDB() {
 }
 
 populateDB()
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
