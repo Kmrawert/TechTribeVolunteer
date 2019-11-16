@@ -62,7 +62,7 @@ var dataEvents = {
   image: "x",
   posteddate: Date,
   eventdate: Date,
-  // eventtime: "3:30pm"
+  eventtime: "3:30pm"
 };
 
 // const databaseUrl = "volunteer";
