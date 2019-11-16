@@ -6,8 +6,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 // const session = require('express-session')
 // const MongoStore = require('connect-mongo')(session)
-const passport = require("./passport");
-
+const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
@@ -18,6 +17,7 @@ const events = require("./models/events.js");
 const userRoute = require("./routes/users.js");
 const eventRoute = require("./routes/events.js");
 //const populate = require('./routes/populate.js')
+
 
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
@@ -52,10 +52,19 @@ app.use(passport.session()); // calls the deserializeUser
 // const collections = ["users", "events"];
 // const db = mongojs(databaseUrl, collections);
 // list all collections here or diff for each table?
-
 // db.on("error", function(error) {
 //   console.log("Database Error:", error);
 // });
+
+
+events.create(dataEvents)
+  .then(function(dbEvents) {
+    // If saved successfully, print the new Example document to the console
+    console.log(dbEvents);
+  })
+  .catch(function(err) {
+    console.log(err.message);
+  });
 
 function populateDB() {
   var dataEvents = {
@@ -98,6 +107,7 @@ function populateDB() {
   }
 }
 populateDB();
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

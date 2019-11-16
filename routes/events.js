@@ -1,6 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const Events = require("../models/events");
+
+const express = require('express')
+const router = express.Router()
+const Events = require('../models/event')
+
 
 router.post("/events", function(req, res) {
   // Create a new note and pass the req.body to the entry
