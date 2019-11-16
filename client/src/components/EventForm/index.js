@@ -75,11 +75,7 @@ class EventForm extends Component {
   render() {
     return (
       <div>
-        {/* <h1>Event Form!!!!!!!!!!!!!!!</h1>
-            <Input />
-            <TextArea />
-            <FormBtn /> */}
-
+       
         <form onSubmit={this.handleSubmit}>
           <label>
             Event Title:

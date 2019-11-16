@@ -34,26 +34,32 @@ var eventsSchema = new Schema({
     type: Number, unique: true, required: true
   },
   link: {
-    type: String, trim: true, required: "Link is Required"
+    type: String, required: "Link is Required"
   },
   image: {
-    //type: String
+    type: String
   },
   posteddate: {
-    type: Date, default: moment().format("MMM Do YY")  // time of post?
+    type: Date, default: new Date() // time of post?
+    //use moment on front end, save as string
   },
   eventdate: {
-    type: Date, default: moment().format('MMMM Do YYYY, h:mm a')
+    type: Date, default: new Date()
     // min: '2019-11-20',
     // max: '2023-12-31'
   },
-  // eventtime: {
-  //   type: String, 
-  // },
+   eventtime: {
+    type: String, 
+  },
+  userattendee: 
+    {type: Schema.Types.ObjectId, ref: "User"},
+  usercreator: 
+    {type: Schema.Types.ObjectId, ref: "User"}
+ 
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var events = mongoose.model("Events", eventsSchema);
+var Event = mongoose.model("Event", eventsSchema);
 
 // Export the Example model
-module.exports = events;
+module.exports = Event;

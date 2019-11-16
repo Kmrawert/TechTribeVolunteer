@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
                 res.json(savedUser)
             })
         }
-    })
+    }).populate("Event")
 })
 
 router.post(
