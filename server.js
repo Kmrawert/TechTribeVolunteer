@@ -1,40 +1,40 @@
 const express = require("express");
 const path = require("path");
 // const mongojs = require("mongojs");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const morgan = require('morgan')
-const session = require('express-session')
+const morgan = require("morgan");
+// const session = require('express-session')
 // const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
 
-const dbConnection = require('./models')
-// const events = require("models/event.js");
+// const dbConnection = require('./models')
+const events = require("./models/events.js");
 // const users = require('./models/users.js')
-
-// const userRoute = require('./routes/users.js')
-
+const userRoute = require("./routes/users.js");
+const eventRoute = require("./routes/events.js");
 //const populate = require('./routes/populate.js')
 
 
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://heroku_pncrmznv:lf7o7n7qfbqssgsoi7te6h38po@ds061199.mlab.com:61199/heroku_pncrmznv";
-  // process.env.MONGODB_URI || "mongodb://localhost/volunteer";
- 
+  process.env.MONGODB_URI ||
+  "mongodb://heroku_pncrmznv:lf7o7n7qfbqssgsoi7te6h38po@ds061199.mlab.com:61199/heroku_pncrmznv";
+// process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+
 mongoose.connect(MONGODB_URI);
 
-app.use(morgan('dev'))
+app.use(morgan("dev"));
 app.use(
-	bodyParser.urlencoded({
-		extended: false
-	})
-)
-app.use(bodyParser.json())
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
 
 // app.use(
 // 	session({
@@ -45,8 +45,8 @@ app.use(bodyParser.json())
 // 	})
 // )
 
-app.use(passport.initialize())
-app.use(passport.session()) // calls the deserializeUser
+app.use(passport.initialize());
+app.use(passport.session()); // calls the deserializeUser
 
 // const databaseUrl = "volunteer";
 // const collections = ["users", "events"];
@@ -82,33 +82,31 @@ function populateDB() {
   };
 
   for (let i = 0; i < 6; i++) {
-    const copy = {...dataEvents}
-    copy.title = copy.title + i
-    copy.description = copy.description + i
-    copy.organization = copy.organization + i
-    copy.experience = copy.experience + i
-    copy.zipcode = copy.zipcode + i
-    copy.numberofspots = copy.numberofspots + i
-    copy.link = copy.link + i
-    copy.image = copy.image + i
-    copy.posteddate = copy.posteddate + i
-    copy.eventdate = copy.eventdate + i
-    copy.eventtime = copy.eventtime + i
-  
-    events.create(copy)
+    const copy = { ...dataEvents };
+    copy.title = copy.title + i;
+    copy.description = copy.description + i;
+    copy.organization = copy.organization + i;
+    copy.experience = copy.experience + i;
+    copy.zipcode = copy.zipcode + i;
+    copy.numberofspots = copy.numberofspots + i;
+    copy.link = copy.link + i;
+    copy.image = copy.image + i;
+    copy.posteddate = copy.posteddate + i;
+    copy.eventdate = copy.eventdate + i;
+    copy.eventtime = copy.eventtime + i;
+
+    events
+      .create(copy)
       .then(function(dbEvents) {
         // If saved successfully, print the new Example document to the console
-        console.log("testing",  dbEvents);
+        console.log("testing", dbEvents);
       })
       .catch(function(err) {
         console.log(err.message);
       });
-
   }
-
 }
-
-populateDB()
+populateDB();
 
 
 // Define middleware here
@@ -127,19 +125,16 @@ if (true) {
 app.use("/api", apiRoutes);
 
 //app.use('/user', user)
-app.use('./models/user', users);
+app.use("./models/user", userRoute);
 
 app.use(eventRoute);
-
-
 
 app.get("/api/events", function(req, res) {
   db.events.find({}, function(err, found) {
     if (err) {
       console.log(err);
-    }
-    else {
-      res.json({"test" : "testing"});
+    } else {
+      res.json({ test: "testing" });
     }
   });
 });
