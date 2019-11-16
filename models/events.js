@@ -40,16 +40,20 @@ var eventsSchema = new Schema({
     //type: String
   },
   posteddate: {
-    type: Date, default: moment().format("MMM Do YY")  // time of post?
+    type: Date, default: Date.now  // time of post?
+    //use moment on front end, save as string
   },
   eventdate: {
     type: Date, default: moment().format('MMMM Do YYYY, h:mm a')
     // min: '2019-11-20',
     // max: '2023-12-31'
   },
-  // eventtime: {
-  //   type: String, 
-  // },
+   eventtime: {
+    type: String, 
+  },
+  userattendee: {type: Schema.Types.ObjectId, ref: "User"},
+  usercreator: {type: Schema.Types.ObjectId, ref: "User"}
+ 
 });
 
 // This creates our model from the above schema, using mongoose's model method
