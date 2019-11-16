@@ -23,7 +23,6 @@ class FileUploader extends Component {
       
         
      
-            // client.pick(pickerOptions).then(function(result) { console.log(JSON.stringify(result.filesUploaded)) });
         
 
 
