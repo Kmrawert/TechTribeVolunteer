@@ -51,13 +51,15 @@ var eventsSchema = new Schema({
    eventtime: {
     type: String, 
   },
-  userattendee: {type: Schema.Types.ObjectId, ref: "User"},
-  usercreator: {type: Schema.Types.ObjectId, ref: "User"}
+  userattendee: 
+    {type: Schema.Types.ObjectId, ref: "User"},
+  usercreator: 
+    {type: Schema.Types.ObjectId, ref: "User"}
  
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var events = mongoose.model("Events", eventsSchema);
+var Event = mongoose.model("Event", eventsSchema);
 
 // Export the Example model
-module.exports = events;
+module.exports = Event;

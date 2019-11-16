@@ -7,19 +7,16 @@ const morgan = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
 
 const dbConnection = require('./models')
-const events = require("./models/events.js");
+// const events = require("models/event.js");
 // const users = require('./models/users.js')
-const userRoute = require('./routes/users.js')
+// const userRoute = require('./routes/users.js')
 //const populate = require('./routes/populate.js')
 //set up for users as well? require?
-
-
 
 // testing
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
@@ -29,7 +26,6 @@ var MONGODB_URI =
   // process.env.MONGODB_URI || "mongodb://localhost/volunteer";
  
 mongoose.connect(MONGODB_URI);
-
 
 app.use(morgan('dev'))
 app.use(
@@ -69,7 +65,6 @@ var dataEvents = {
 // const collections = ["users", "events"];
 // const db = mongojs(databaseUrl, collections);
 // list all collections here or diff for each table?
-
 // db.on("error", function(error) {
 //   console.log("Database Error:", error);
 // });
@@ -82,9 +77,6 @@ events.create(dataEvents)
   .catch(function(err) {
     console.log(err.message);
   });
-
-
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -102,7 +94,7 @@ if (true) {
 app.use("/api", apiRoutes);
 
 //app.use('/user', user)
-app.use('./models/user', userRoute);
+app.use('./models/user', users);
 
 
 app.get("/api/events", function(req, res) {
