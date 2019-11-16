@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
   import Login from "./components/Login"
   import Volunteer from "./components/Volunteer"
   import EventForm from "./components/EventForm"
+  import UserProfile from "./components/UserProfile"
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
@@ -50,6 +51,7 @@ class App extends Component {
         <Route exact path="/Login" component={Login} />
         <Route exact path="/EventForm" component={EventForm} />
         <Route path="/Volunteer" component={Volunteer} />
+        <Route exact path="/UserProfile" component={UserProfile} />
       </div>
   </Router> 
             {/* <Col size="xs-12">
