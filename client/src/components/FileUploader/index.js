@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../Nav";
 import * as filestack from 'filestack-js';
-
+import "./style.css";
 
 
 

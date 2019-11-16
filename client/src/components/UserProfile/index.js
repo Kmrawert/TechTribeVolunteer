@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import Nav from "../Nav";
-import "./style.css";
+import "../UserProfile/style.css"
 import FileUploader from "../FileUploader"
 
 class UserProfile extends Component {
    render() {
       return (
          <div id="user">
-
-
-
-
-
-
 
             <div className="container">
                <div className="row">
@@ -24,11 +18,12 @@ class UserProfile extends Component {
                            <div className="row">
                               <div className="col-lg-12">
                                  <div className="col-xs-12 col-sm-4">
+                                    <div className ="image"></div>
                                     <figure>
                                        
                                        <FileUploader/>
                                     </figure>
-
+                                    </div>
                                  </div>
                                  <div className="col-xs-12 col-sm-8">
                                     <ul className="list-group">
@@ -59,10 +54,7 @@ class UserProfile extends Component {
                                                 <a href="#" className="btn btn-social btn-block btn-github">
                                                    <i className="fa fa-github"></i> </a>
                                              </div>
-                                             <div className="col-xs-3 col-md-1 col-lg-1 social-btn-holder">
-                                                <a href="#" className="btn btn-social btn-block btn-stackoverflow">
-                                                   <i className="fa fa-stack-overflow"></i> </a>
-                                             </div>
+                                             
                                           </div>
 
 
@@ -73,32 +65,7 @@ class UserProfile extends Component {
                            </div>
                         </div>
 
-                        <div className="container">
-                           <div className="interests">
-                              <div className="form-check form-check-inline">
-                                 <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
-                                 <label className="form-check-label" for="inlineRadio1">1</label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                 <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                 <label className="form-check-label" for="inlineRadio2">2</label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                 <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                 <label className="form-check-label" for="inlineRadio2">3</label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                 <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                 <label className="form-check-label" for="inlineRadio2">4</label>
-                              </div>
-                              <div className="form-check form-check-inline">
-                                 <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
-                                 <label className="form-check-label" for="inlineRadio2">5</label>
-                              </div>
-                           </div>
-                           <button type="button" className="btn btn-primary btn-sm">Save Interests</button>
-                        </div>
-                     </div>
+                      
 
                      <div className="row">
                         <div className="col-lg-6">
@@ -189,7 +156,8 @@ class UserProfile extends Component {
 
 
             </div>
-         </div>
+            </div>
+        
 
 
 
