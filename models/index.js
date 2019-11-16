@@ -1,3 +1,9 @@
+module.exports = {
+    event: require("./event"),
+    populate: require("./populate"),
+    users: require("./users")
+  };
+
 // const mongoose = require('mongoose')
 // mongoose.Promise = global.Promise
 
