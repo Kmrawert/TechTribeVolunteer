@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const mongojs = require("mongojs");
+// const mongojs = require("mongojs");
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
 const morgan = require('morgan')
@@ -39,14 +39,14 @@ app.use(
 )
 app.use(bodyParser.json())
 
-app.use(
-	session({
-		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
-		store: new MongoStore({ mongooseConnection: dbConnection }),
-		resave: false, //required
-		saveUninitialized: false //required
-	})
-)
+// app.use(
+// 	session({
+// 		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
+// 		store: new MongoStore({ mongooseConnection: dbConnection }),
+// 		resave: false, //required
+// 		saveUninitialized: false //required
+// 	})
+// )
 
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
@@ -65,14 +65,14 @@ var dataEvents = {
   // eventtime: "3:30pm"
 };
 
-const databaseUrl = "volunteer";
-const collections = ["users", "events"];
-const db = mongojs(databaseUrl, collections);
+// const databaseUrl = "volunteer";
+// const collections = ["users", "events"];
+// const db = mongojs(databaseUrl, collections);
 // list all collections here or diff for each table?
 
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
 
 events.create(dataEvents)
   .then(function(dbEvents) {
@@ -82,8 +82,6 @@ events.create(dataEvents)
   .catch(function(err) {
     console.log(err.message);
   });
-
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -103,18 +101,6 @@ app.use('./models/user', userRoute)
 // Define any API routes before this runs
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-
-
-app.get("/events", function(req, res) {
-  db.events.find({}, function(err, found) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.json(found);
-    }
-  });
 });
 
 app.listen(PORT, function() {
