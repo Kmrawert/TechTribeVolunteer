@@ -16,8 +16,38 @@ import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 class App extends Component {
  state = {
-   recipes: [],
-   recipeSearch: ""
+  results: [
+    {
+      postedate: "10/11/19",
+      eventdate: "11/20/19",
+      title: "test",
+      description: "work",
+      organization: "chruch",
+      experience: "school",
+      zipcode: "60657",
+      numberofspots: "10",
+      link: "www.",
+      image: "pic",
+      eventtime: "14:00"
+
+    },
+    {
+      postedate: "10/11/19",
+      eventdate: "11/20/19",
+      title: "test",
+      description: "work",
+      organization: "chruch",
+      experience: "school",
+      zipcode: "60657",
+      numberofspots: "10",
+      link: "wwww.",
+      image: "pic",
+      eventtime: "14:00"
+
+    }
+
+  ],
+   eventSearch: ""
  };
  handleInputChange = event => {
    // Destructure the name and value properties off of event.target
@@ -30,10 +60,11 @@ class App extends Component {
  handleFormSubmit = event => {
    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
    event.preventDefault();
-   API.getRecipes(this.state.recipeSearch)
+   API.getEvents(this.state.eventSearch)
      .then(res => {
-       console.log(res.data.items)
-       this.setState({ recipes: res.data.items })
+       console.log(res.data)
+      //  this.setState({ results: res.data.items })
+      // commented out 
      })
      .catch(err => console.log(err));
  };
@@ -51,10 +82,10 @@ class App extends Component {
                      <Row>
                        <Col size="xs-9 sm-10">
                          <Input
-                           name="recipeSearch"
-                           value={this.state.recipeSearch}
+                           name="eventSearch"
+                           value={this.state.eventSearch}
                            onChange={this.handleInputChange}
-                           placeholder="Search For an Event"
+                           placeholder="Search Zipcode"
                          />
                        </Col>
                        <Col size="xs-3 sm-2">
@@ -77,12 +108,12 @@ class App extends Component {
            <Row>
              <Col size="xs-12">
              <div id='routes'>
-               <Route exact path="/" component={Home} />
+               <Route exact path="/" component={() => <Home events={this.state.results}/>} />
                <Route exact path="/Login" component={Login} />
                <Route exact path="/EventForm" component={EventForm} />
                <Route exact path="/Volunteer" component={Volunteer} />
                <Route exact path="/UserProfile" component={UserProfile} />
-               {/* {/ <Route path="/" component={Login} /> */} */}
+               {/* {/ <Route path="/" component={Login} /> */} 
              </div>
                {/* {!this.state.recipes.length ? (
                  <h4 className="text-center">No Volunteer Events to Display</h4>

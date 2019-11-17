@@ -4,76 +4,57 @@ import "./style.css";
 
 
 class Home extends Component {
-    render() {
-        return (
-            <div id="home">
-            {/* <h1>Home!!!!!!!!!!!!!!!</h1> */}
-            <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-        )
-    } 
+
+  render() {
+    return (
+      <div id="home">
+        {/* <h1>Home!!!!!!!!!!!!!!!</h1> */}
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Post Date</th>
+              <th scope="col">Event Date</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Organization</th>
+              <th scope="col">Experience</th>
+              <th scope="col">Zip code</th>
+              <th scope="col">Number of Spots</th>
+              <th scope="col">Link</th>
+              <th scope="col">Image</th>
+              <th scope="col">Event Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.events.map(result => {
+              return (
+                <tr>
+                  <td>{result.postedate}</td>
+                  <td>{result.eventdate}</td>
+                  <td>{result.title}</td>
+                  <td>{result.description}</td>
+                  <td>{result.organization}</td>
+                  <td>{result.experience}</td>
+                  <td>{result.zipcode}</td>
+                  <td>{result.numberofspots}</td>
+                  <td>{result.link}</td>
+                  <td>{result.image}</td>
+                  <td>{result.eventtime}</td>
+                </tr>
+
+              )
+            })
+
+            }
+
+          </tbody>
+        </table>
+      </div>
+    )
+  }
 
 }
 
-export default Home; 
+export default Home;
 

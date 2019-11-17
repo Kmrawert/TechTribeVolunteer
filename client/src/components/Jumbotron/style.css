@@ -1,6 +1,6 @@
 .jumbotron {
   /* min-height: 300px; */
-  padding-top:21.25%;
+  padding-top:15.25%;
   background-image: url(https://irp-cdn.multiscreensite.com/520e9c30/dms3rep/multi/Depositphotos_199511230_xl-2015RESIZED.jpg);
   background-size:cover;
 }
@@ -16,7 +16,7 @@
 h1 {
  
   color:floralwhite;
-  font-family: 'PT Serif', serif;
+  /* font-family: 'PT Serif', serif; */
   /* font-weight: bold; */
   font-size: 3.5rem;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
