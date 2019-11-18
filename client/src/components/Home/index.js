@@ -7,6 +7,7 @@ class Home extends Component {
     render() {
         return (
             <div id="home">
+              
             {/* <h1>Home!!!!!!!!!!!!!!!</h1> */}
             <table class="table">
   <thead class="thead-dark">
@@ -70,6 +71,7 @@ class Home extends Component {
   </tbody>
 </table>
             </div>
+            
         )
     } 
 

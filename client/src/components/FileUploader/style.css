@@ -1,40 +1,4 @@
-body{margin-top:20px;
-    background:#eee;
-    }
-    
-    .panel-teal .panel-heading {
-        background-color: #37BC9B;
-        border: 1px solid #36b898;
-        color: white;
-    }
-    
-    .panel .panel-heading {
-        padding: 5px;
-        border-top-right-radius: 3px;
-        border-top-left-radius: 3px;
-        border-bottom: 1px solid #DDD;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border-radius: 0px;
-    }
-    
-    .panel .panel-heading .panel-title {
-        padding: 10px;
-        font-size: 17px;
-    }
-    
-    form .form-group {
-        position: relative;
-        margin-left: 0px !important;
-        margin-right: 0px !important;
-    }
-    
-    .inner-all {
-        padding: 10px;
-    }
-    
-    
-                        
+                  
        
     @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
     
@@ -67,7 +31,9 @@ body{margin-top:20px;
       opacity: 0.9;
     }
     
-   
+   .thumbnail{
+     padding-top: 0px;
+   }
     
     
     .bs-callout {
@@ -95,18 +61,8 @@ body{margin-top:20px;
     .bs-callout-danger h4{
         color: green;
     }
-    .image{
-     max-width: 170px;
-    max-height: 170px;
-    }
     
     
     
     
-    
-    @media (max-width: 992px) {
-      .resume-heading .social-btn-holder{
-        padding:5px;
-      }
-    }
-    
+        

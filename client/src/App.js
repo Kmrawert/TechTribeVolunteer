@@ -82,7 +82,7 @@ class App extends Component {
                <Route exact path="/EventForm" component={EventForm} />
                <Route exact path="/Volunteer" component={Volunteer} />
                <Route exact path="/UserProfile" component={UserProfile} />
-               {/* {/ <Route path="/" component={Login} /> */} */}
+               {/* {/ <Route path="/" component={Login} /> */} 
              </div>
                {/* {!this.state.recipes.length ? (
                  <h4 className="text-center">No Volunteer Events to Display</h4>
