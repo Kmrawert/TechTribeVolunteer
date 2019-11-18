@@ -3,6 +3,7 @@ import "../UserProfile/style.css"
 import FileUploader from "../FileUploader"
 import Password from "../Password"
 
+
 class UserProfile extends Component {
    render() {
       return (
@@ -23,9 +24,9 @@ class UserProfile extends Component {
                            <div className=" col-lg-6">
                               <ul className="list-group">
                                  {/* <Login/> */}
-                                 <li className="list-group-item" contentEditable="false" input type="text" id="username" name="username">Name: John Doe</li>
-                                 <li className="list-group-item" contentEditable="true" input type="password" id="pass" nred >Password: John Doe</li>
-                                 <button type="button" className="btn btn-primary btn-sm" onclick="Function();"><Password/></button>
+                                 <li className="list-group-item" contentEditable="false" input type="text" id="username" name="username">Username: </li>
+                                 <li className="list-group-item" contentEditable="true" input type="password" id="pass" nred ><button type="button" className="btn btn-primary btn-sm" onclick="Function();"><Password/></button></li>
+                                 
                              
                               </ul>
                            </div>
@@ -119,8 +120,6 @@ class UserProfile extends Component {
                      </div>
                   </div>
                </div>
-
-
 
 
 
