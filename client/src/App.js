@@ -1,26 +1,24 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./components/Home"
-import Login from "./components/Login"
-import Volunteer from "./components/Volunteer"
-import EventForm from "./components/EventForm"
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Volunteer from "./components/Volunteer";
+import EventForm from "./components/EventForm";
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import API from "./utils/API";
-import UserProfile from "../src/components/UserProfile"
+import UserProfile from "../src/components/UserProfile";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 class App extends Component {
   state = {
     volunteerEvents: [],
-    eventSearch: ""
+    eventInfo: ""
   };
   handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -28,7 +26,7 @@ class App extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getEvents(this.state.eventSearch)
+    API.saveEvent(this.state.eventInfo)
       .then(res => {
         console.log(res.data.items)
         this.setState({ volunteerEvents: res.data.items })
@@ -49,10 +47,10 @@ class App extends Component {
                       <Row>
                         <Col size="xs-9 sm-10">
                           <Input
-                            name="eventSearch"
-                            value={this.state.eventSearch}
+                            name="eventInfo"
+                            value={this.state.eventInfo}
                             onChange={this.handleInputChange}
-                            placeholder="Search For an Event"
+                            placeholder="Search by Zip Code for an Event"
                           />
                         </Col>
                         <Col size="xs-3 sm-2">
@@ -79,31 +77,28 @@ class App extends Component {
                   <Route exact path="/EventForm" component={EventForm} />
                   <Route exact path="/Volunteer" component={Volunteer} />
                   <Route exact path="/UserProfile" component={UserProfile} />
-                  {/* {/ <Route path="/" component={Login} /> */} */}
+                  {/* {/ <Route path="/" component={Login} /> */}  
              </div>
-                {!this.state.volunteerEvents.length ? (
-                 <h4 className="text-center">No Volunteer Events to Display</h4>
-               ) : (
+              
                    <ResultsList>
                      {this.state.volunteerEvents.map(volunteerEvent=> {
                        return (
                          <ResultsListItem
-                           key={volunteerEvent.id}
-                           eventTitle={volunteerEvent.eventTitle}
-                            description={volunteerEvent.description}
-                            eventDate={volunteerEvent.eventDate}
-                            eventTime={volunteerEvent.eventTime}
-                            organization={volunteerEvent.organization}
-                            experience={volunteerEvent.experience}
-                            zipcode={volunteerEvent.zipcode}
-                            volNum={volunteerEvent.volNum}
-                            link={volunteerEvent.link}
+                          //  key={volunteerEvent.id}
+                          //  eventTitle={volunteerEvent.eventTitle}
+                          //   description={volunteerEvent.description}
+                          //   eventDate={volunteerEvent.eventDate}
+                          //   eventTime={volunteerEvent.eventTime}
+                          //   organization={volunteerEvent.organization}
+                          //   experience={volunteerEvent.experience}
+                          //   zipcode={volunteerEvent.zipcode}
+                          //   volNum={volunteerEvent.volNum}
+                          //   link={volunteerEvent.link}
                          />
                        );
                      })}
                    </ResultsList>
-                 )}
-
+                  
               </Col>
             </Row>
           </Container>

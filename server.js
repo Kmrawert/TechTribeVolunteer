@@ -34,7 +34,7 @@ app.use(
     extended: false
   })
 );
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // app.use(
 // 	session({
@@ -58,14 +58,14 @@ const collections = ["users", "events"];
 
 var dataEvents = {};
 
-events.create(dataEvents)
-  .then(function(dbEvents) {
-    // If saved successfully, print the new Example document to the console
-    console.log(dbEvents);
-  })
-  .catch(function(err) {
-    console.log(err.message);
-  });
+// events.create(dataEvents)
+//   .then(function(dbEvents) {
+//     // If saved successfully, print the new Example document to the console
+//     console.log(dbEvents);
+//   })
+//   .catch(function(err) {
+//     console.log(err.message);
+//   });
 
 function populateDB() {
   dataEvents = {
@@ -107,7 +107,7 @@ function populateDB() {
       });
   }
 }
-populateDB();
+// populateDB();
 
 
 // Define middleware here
@@ -118,8 +118,9 @@ app.use(express.json());
 //   app.use(express.static("client/build"));
 // }
 
-if (true) {
+if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static("client/build"));
+
 }
 
 // Use apiRoutes // from recipes, need?

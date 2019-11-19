@@ -1,18 +1,17 @@
 
 const express = require('express')
 const router = express.Router()
-const Events = require('../models/events')
+const dB= require('../models')
 
 
-router.post("/events", function(req, res) {
+router.post("/api/events", function(req, res) {
   // Create a new note and pass the req.body to the entry
-  Events.create(req.body)
+  console.log(req.body)
+  dB.event.create(req.body)
     .then(function() {
-      // If we were able to successfully update an Article, send it back to the client
       res.json("success");
     })
     .catch(function(err) {
-      // If an error occurred, send it to the client
       res.json(err);
     });
 });
