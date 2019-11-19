@@ -1,7 +1,7 @@
 
 const express = require('express')
 const router = express.Router()
-const Events = require('../models/event')
+const Events = require('../models/events')
 
 
 router.post("/events", function(req, res) {
