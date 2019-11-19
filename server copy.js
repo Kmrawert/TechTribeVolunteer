@@ -28,7 +28,14 @@ var MONGODB_URI =
 
 mongoose.connect(MONGODB_URI);
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(morgan("dev"));
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
+// app.use(bodyParser.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // app.use(
@@ -122,7 +129,17 @@ app.use("./models/user", userRoute);
 
 app.use(eventRoute);
 
-
+app.get("/api/events", function(req, res) {
+  res.json({})
+  console.log("hahahah")
+  // db.events.find({}, function(err, found) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     res.json({ test: "testing" });
+  //   }
+  // });
+});
 
 // Send every request to the React app
 // Define any API routes before this runs

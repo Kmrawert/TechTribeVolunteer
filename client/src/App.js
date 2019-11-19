@@ -85,7 +85,7 @@ class App extends Component {
                            name="eventSearch"
                            value={this.state.eventSearch}
                            onChange={this.handleInputChange}
-                           placeholder="Search Zipcode"
+                           placeholder="Search by Zipcode"
                          />
                        </Col>
                        <Col size="xs-3 sm-2">

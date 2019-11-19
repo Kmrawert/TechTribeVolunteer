@@ -31,7 +31,7 @@ var eventsSchema = new Schema({
   },
   zipcode: {
     type: Number,
-    unique: true,
+    // unique: true,
     required: true,
     validate: [
       function(input) {
@@ -42,7 +42,7 @@ var eventsSchema = new Schema({
   },
   numberofspots: {
     type: Number,
-    unique: true,
+    // unique: true,
     required: true
   },
   link: {
