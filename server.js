@@ -9,15 +9,16 @@ const morgan = require("morgan");
 const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./routes/apiRoutes");
+const apiRoutes = require("./routes/api/apiRoutes");
 
 // const dbConnection = require('./models')
-const events = require("./models/events.js");
+const events = require("./models/event.js");
 // const users = require('./models/users.js')
 const userRoute = require("./routes/users.js");
 const eventRoute = require("./routes/events.js");
-//const populate = require('./routes/populate.js')
 
+const sgMail = require("@sendgrid/mail");
+const SENDGRID_API_KEY = require("./sendgrid.env")
 
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
@@ -35,6 +36,17 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
+
+sgMail.setApiKey(SENDGRID_API_KEY);
+const msg = {
+  to: "taylor.brady13@gmail.com",
+  from: "mollyanne.patterson@outlook.com",
+  subject: "Welcome to Community ",
+  text: "and easy to do anywhere, even with Node.js",
+  html: "<strong>and easy to do anywhere, even with Node.js</strong>"
+};
+sgMail.send(msg);
 
 // app.use(
 // 	session({
@@ -56,16 +68,6 @@ app.use(passport.session()); // calls the deserializeUser
 //   console.log("Database Error:", error);
 // });
 
-
-events.create(dataEvents)
-  .then(function(dbEvents) {
-    // If saved successfully, print the new Example document to the console
-    console.log(dbEvents);
-  })
-  .catch(function(err) {
-    console.log(err.message);
-  });
-
 function populateDB() {
   var dataEvents = {
     title: "test",
@@ -80,6 +82,15 @@ function populateDB() {
     eventdate: new Date(),
     eventtime: "3:30pm"
   };
+
+events.create(dataEvents)
+  .then(function(dbEvents) {
+    // If saved successfully, print the new Example document to the console
+    console.log(dbEvents);
+  })
+  .catch(function(err) {
+    console.log(err.message);
+  });
 
   for (let i = 0; i < 6; i++) {
     const copy = { ...dataEvents };
@@ -107,7 +118,6 @@ function populateDB() {
   }
 }
 populateDB();
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

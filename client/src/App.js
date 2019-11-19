@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import axios from 'axios'
+// import axios from 'axios'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home"
 import Login from "./components/Login"
@@ -10,14 +10,13 @@ import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
-import API from "./utils/API";
+// import API from "./utils/API";
 import UserProfile from "../src/components/UserProfile"
-import { ResultsList, ResultsListItem } from "./components/ResultsList";
+// import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 class App extends Component {
  state = {
-   recipes: [],
-   recipeSearch: ""
+   eventSearch: ""
  };
  handleInputChange = event => {
    // Destructure the name and value properties off of event.target
@@ -27,16 +26,16 @@ class App extends Component {
      [name]: value
    });
  };
- handleFormSubmit = event => {
-   // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-   event.preventDefault();
-   API.getRecipes(this.state.recipeSearch)
-     .then(res => {
-       console.log(res.data.items)
-       this.setState({ recipes: res.data.items })
-     })
-     .catch(err => console.log(err));
- };
+//  handleFormSubmit = event => {
+//    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
+//    event.preventDefault();
+//    API.getRecipes(this.state.recipeSearch)
+//      .then(res => {
+//        console.log(res.data.items)
+//        this.setState({ recipes: res.data.items })
+//      })
+//      .catch(err => console.log(err));
+//  };
  render() {
    return (
      <Router>
@@ -51,10 +50,10 @@ class App extends Component {
                      <Row>
                        <Col size="xs-9 sm-10">
                          <Input
-                           name="recipeSearch"
-                           value={this.state.recipeSearch}
+                           name="eventSearch"
+                           value={this.state.eventSearch}
                            onChange={this.handleInputChange}
-                           placeholder="Search For an Event"
+                           placeholder="Search For an Event by ZipCode"
                          />
                        </Col>
                        <Col size="xs-3 sm-2">
@@ -82,7 +81,7 @@ class App extends Component {
                <Route exact path="/EventForm" component={EventForm} />
                <Route exact path="/Volunteer" component={Volunteer} />
                <Route exact path="/UserProfile" component={UserProfile} />
-               {/* {/ <Route path="/" component={Login} /> */} */}
+               {/* {/ <Route path="/" component={Login} /> */}
              </div>
                {/* {!this.state.recipes.length ? (
                  <h4 className="text-center">No Volunteer Events to Display</h4>
