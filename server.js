@@ -35,7 +35,7 @@ app.use(
     extended: false
   })
 );
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 
 sgMail.setApiKey(SENDGRID_API_KEY);
@@ -60,16 +60,27 @@ sgMail.send(msg);
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
 
-// const databaseUrl = "volunteer";
-// const collections = ["users", "events"];
+const databaseUrl = "volunteer";
+const collections = ["users", "events"];
 // const db = mongojs(databaseUrl, collections);
-// list all collections here or diff for each table?
+// // list all collections here or diff for each table?
 // db.on("error", function(error) {
 //   console.log("Database Error:", error);
 // });
 
+var dataEvents = {};
+
+// events.create(dataEvents)
+//   .then(function(dbEvents) {
+//     // If saved successfully, print the new Example document to the console
+//     console.log(dbEvents);
+//   })
+//   .catch(function(err) {
+//     console.log(err.message);
+//   });
+
 function populateDB() {
-  var dataEvents = {
+  dataEvents = {
     title: "test",
     description: "x",
     organization: "x",
@@ -117,7 +128,7 @@ events.create(dataEvents)
       });
   }
 }
-populateDB();
+// populateDB();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -127,8 +138,9 @@ app.use(express.json());
 //   app.use(express.static("client/build"));
 // }
 
-if (true) {
+if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static("client/build"));
+
 }
 
 // Use apiRoutes // from recipes, need?
@@ -140,7 +152,7 @@ app.use("./models/user", userRoute);
 app.use(eventRoute);
 
 app.get("/api/events", function(req, res) {
-  db.events.find({}, function(err, found) {
+  events.find({}, function(err, found) {
     if (err) {
       console.log(err);
     } else {
