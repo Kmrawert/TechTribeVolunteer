@@ -1,17 +1,12 @@
 const express = require("express");
 const path = require("path");
-// const mongojs = require("mongojs");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-// const session = require('express-session')
-// const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
-
-// const dbConnection = require('./models')
 const events = require("./models/events.js");
 const userRoute = require("./routes/users.js");
 const eventRoute = require("./routes/events.js");
@@ -29,15 +24,6 @@ app.use(
   })
 );
 // app.use(bodyParser.json());
-
-// app.use(
-// 	session({
-// 		secret: 'special-harkening', //pick a random string to make the hash that is generated secure
-// 		store: new MongoStore({ mongooseConnection: dbConnection }),
-// 		resave: false, //required
-// 		saveUninitialized: false //required
-// 	})
-// )
 
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
@@ -93,7 +79,6 @@ function populateDB() {
     events
       .create(copy)
       .then(function(dbEvents) {
-        // If saved successfully, print the new Example document to the console
         console.log("testing", dbEvents);
       })
       .catch(function(err) {
@@ -114,13 +99,10 @@ app.use(express.json());
 
 if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static("client/build"));
-
 }
 
-// Use apiRoutes // from recipes, need?
 app.use("/api", apiRoutes);
 
-//app.use('/user', user)
 app.use('/user', userRoute);
 
 app.use(eventRoute);
@@ -135,8 +117,7 @@ app.get("/api/events", function(req, res) {
   });
 });
 
-// Send every request to the React app
-// Define any API routes before this runs
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });

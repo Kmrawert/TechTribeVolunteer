@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 mongoose.promise = Promise;
 
-// Define userSchema
 const userSchema = new Schema({
   username: {
     type: String,
@@ -11,10 +10,6 @@ const userSchema = new Schema({
     unique: true,
     required: true
   },
-  // email: {
-  //     type: String,
-  //     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-  //   },
   password: {
     type: String,
     unique: true,
@@ -28,19 +23,17 @@ const userSchema = new Schema({
   },
   name: { type: String },
 
-  //interests: [{type: String}], // update with checkboxes?
-  interests: {
-    one: { type: Boolean, default: false },
-    two: { type: Boolean, default: false },
-    three: { type: Boolean, default: false },
-    four: { type: Boolean, default: false },
-    five: { type: Boolean, default: false }
-  },
+  // interests: {
+  //   one: { type: Boolean, default: false },
+  //   two: { type: Boolean, default: false },
+  //   three: { type: Boolean, default: false },
+  //   four: { type: Boolean, default: false },
+  //   five: { type: Boolean, default: false }
+  // },
   userattendee: { type: Schema.Types.ObjectId, ref: "Event" },
   usercreator: { type: Schema.Types.ObjectId, ref: "Event" }
 });
 
-// Define schema methods
 userSchema.methods = {
   checkPassword: function(inputPassword) {
     return bcrypt.compareSync(inputPassword, this.password);

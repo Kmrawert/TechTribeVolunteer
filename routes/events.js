@@ -10,6 +10,13 @@ router.post("/api/events", function(req, res) {
   dB.event.create(req.body)
     .then(function() {
       res.json("success");
+      const createMsg = {
+        to: newUser,
+        from: "mollyanne.patterson@outlook.com",
+        subject: "You've Created a New Event",
+        text: "Thank you for creating a new event! We will review your submission and reach out to you within 24 hours!",
+        html: "<strong>Thank you for creating a new event!</strong>"
+      };
     })
     .catch(function(err) {
       res.json(err);
