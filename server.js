@@ -9,23 +9,16 @@ const morgan = require("morgan");
 const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./routes/api/apiRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 // const dbConnection = require('./models')
-const events = require("./models/event.js");
-// const users = require('./models/users.js')
+const events = require("./models/events.js");
 const userRoute = require("./routes/users.js");
 const eventRoute = require("./routes/events.js");
 
-const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = require("./sendgrid.env")
-
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
-var MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb://heroku_pncrmznv:lf7o7n7qfbqssgsoi7te6h38po@ds061199.mlab.com:61199/heroku_pncrmznv";
-// process.env.MONGODB_URI || "mongodb://localhost/volunteer";
+var MONGODB_URI = process.env.MONGODB_URI ||  "mongodb://localhost/volunteer";
 
 mongoose.connect(MONGODB_URI);
 
@@ -36,17 +29,6 @@ app.use(
   })
 );
 // app.use(bodyParser.json());
-
-
-sgMail.setApiKey(SENDGRID_API_KEY);
-const msg = {
-  to: "taylor.brady13@gmail.com",
-  from: "mollyanne.patterson@outlook.com",
-  subject: "Welcome to Community ",
-  text: "and easy to do anywhere, even with Node.js",
-  html: "<strong>and easy to do anywhere, even with Node.js</strong>"
-};
-sgMail.send(msg);
 
 // app.use(
 // 	session({
@@ -94,15 +76,6 @@ function populateDB() {
     eventtime: "3:30pm"
   };
 
-events.create(dataEvents)
-  .then(function(dbEvents) {
-    // If saved successfully, print the new Example document to the console
-    console.log(dbEvents);
-  })
-  .catch(function(err) {
-    console.log(err.message);
-  });
-
   for (let i = 0; i < 6; i++) {
     const copy = { ...dataEvents };
     copy.title = copy.title + i;
@@ -130,6 +103,7 @@ events.create(dataEvents)
 }
 // populateDB();
 
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -147,7 +121,7 @@ if (process.env.NODE_ENV === 'production' || true) {
 app.use("/api", apiRoutes);
 
 //app.use('/user', user)
-app.use("./models/user", userRoute);
+app.use('/user', userRoute);
 
 app.use(eventRoute);
 

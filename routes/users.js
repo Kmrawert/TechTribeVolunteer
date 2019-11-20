@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/users");
 const passport = require("../passport");
-const sgMail = require("@sendgrid/mail");
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // var dataUsers = {
 //     username: "molly_patterson@test.com",
@@ -22,6 +19,7 @@ router.post("/", (req, res) => {
   console.log("user signup");
 
   const { username, password } = req.body;
+  // ADD VALIDATION
   User.findOne({ username: username }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
@@ -38,23 +36,14 @@ router.post("/", (req, res) => {
         if (err) return res.json(err);
         res.json(savedUser);
       });
-      const WelcomeMsg = {
-        to: newUser,
-        from: "mollyanne.patterson@outlook.com",
-        subject: "Welcome to Community Connect!",
-        text: "Thank you for joining Community Connect!",
-        html: "<strong>Thank you for joining Community Connect!</strong>"
-      };
-      sgMail.send(WelcomeMsg);
     }
   }).populate("Event");
-
 });
 
 router.post(
   "/login",
   function(req, res, next) {
-    console.log("routes/users.js, login, req.body: ");
+    console.log("routes/user.js, login, req.body: ");
     console.log(req.body);
     next();
   },
@@ -66,10 +55,10 @@ router.post(
     };
     res.send(userInfo);
   }
-  // ,
+  //,
 
-  // // put in route, create what user inputs
-  // User.create(User)
+  //put in route, create what user inputs
+  // User.create(dataUsers)
   // .then(function(dbUsers) {
   //   console.log(dbUsers);
   // })

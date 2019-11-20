@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-// import Nav from "../Nav";
+import Nav from "../Nav";
 import * as filestack from 'filestack-js';
 import "./style.css";
+
+
 
 class FileUploader extends Component {
 
@@ -19,11 +21,29 @@ class FileUploader extends Component {
           };
           client.picker(options).open();
       
-    
+        
+     
+        
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
 
     render() {
         return (
+
+
+
             <div className="container">
 
                 <div className="row">
