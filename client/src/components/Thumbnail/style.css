@@ -1,7 +1,14 @@
-div.thumbnail {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    padding-top: 0;
-  }
+div.thumbnail{
+  width:100%;
+  max-width:1000px;
+}
+
+.img-responsive{
+  width:100%;
+  padding-top:56.25%;
+  background:red;
+  background:url(http://placehold.it/450x250?text=Upload+a+Photo);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+}

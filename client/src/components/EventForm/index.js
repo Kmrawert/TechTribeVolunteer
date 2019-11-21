@@ -1,28 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-// export function Input(props) {
-//   return (
-//     <div className="form-group">
-//       <input className="form-control" {...props} />
-//     </div>
-//   );
-// }
-
-// export function TextArea(props) {
-//   return (
-//     <div className="form-group">
-//       <textarea className="form-control" rows="20" {...props} />
-//     </div>
-//   );
-// }
-
-// export function FormBtn(props) {
-//   return (
-//     <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
-//       {props.children}
-//     </button>
-//   );
-// }
+import API from "../../utils/API";
 
 class EventForm extends Component {
   constructor(props) {
@@ -47,11 +24,10 @@ class EventForm extends Component {
   handleChange(event) {
     const name = event.target.name
     this.setState({ [name]: event.target.value });
-
   }
 
   handleSubmit(event) {
-    alert('fields submitted: ' + this.state.eventTitle);
+    alert('Event' + this.state.eventTitle + 'submitted');
     event.preventDefault();
     const userInput= {
       title: this.state.eventTitle, 
@@ -65,7 +41,7 @@ class EventForm extends Component {
       link: this.state.link
     };
 
-    axios.post("/api/events", { userInput })
+    API.saveEvent(userInput)
       .then(res => {
         console.log(res);
         console.log(res.data);

@@ -27,7 +27,7 @@ class Home extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.events.map(result => {
+            {/* {this.props.events.map(result => {
               return (
                 <tr>
                   <td>{result.postedate}</td>
@@ -44,7 +44,7 @@ class Home extends Component {
                 </tr>
 
               )
-            })
+            }) */}
 
             }
 

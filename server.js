@@ -54,14 +54,15 @@ app.use(fileUpload())
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
 
-// const databaseUrl = "volunteer";
-// const collections = ["users", "events"];
+const databaseUrl = "volunteer";
+const collections = ["users", "events"];
 // const db = mongojs(databaseUrl, collections);
-// list all collections here or diff for each table?
+// // list all collections here or diff for each table?
 // db.on("error", function(error) {
 //   console.log("Database Error:", error);
 // });
 
+var dataEvents = {};
 
 // events.create(dataEvents)
 //   .then(function(dbEvents) {
@@ -73,7 +74,7 @@ app.use(passport.session()); // calls the deserializeUser
 //   });
 
 function populateDB() {
-  var dataEvents = {
+  dataEvents = {
     title: "test",
     description: "x",
     organization: "x",
@@ -112,7 +113,7 @@ function populateDB() {
       });
   }
 }
-populateDB();
+// populateDB();
 
 
 // Define middleware here
@@ -127,6 +128,7 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+
 }
 
 
@@ -162,7 +164,7 @@ app.use("./models/user", userRoute);
 app.use(eventRoute);
 
 app.get("/api/events", function(req, res) {
-  db.events.find({}, function(err, found) {
+  events.find({}, function(err, found) {
     if (err) {
       console.log(err);
     } else {

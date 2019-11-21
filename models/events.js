@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var moment = require("moment");
+// var moment = require("moment");
 
 var Schema = mongoose.Schema;
 
@@ -31,7 +31,7 @@ var eventsSchema = new Schema({
   },
   zipcode: {
     type: Number,
-    unique: true,
+    unique: false,
     required: true,
     validate: [
       function(input) {
@@ -42,7 +42,7 @@ var eventsSchema = new Schema({
   },
   numberofspots: {
     type: Number,
-    unique: true,
+    unique: false,
     required: true
   },
   link: {
@@ -71,7 +71,7 @@ var eventsSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Event = mongoose.model("Event", eventsSchema);
+var event = mongoose.model("event", eventsSchema);
 
 // Export the Example model
-module.exports = Event;
+module.exports = event;

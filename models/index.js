@@ -1,6 +1,5 @@
 module.exports = {
     event: require("./event"),
-    //populate: require("./populate"),
     users: require("./users")
   };
 
