@@ -129,10 +129,10 @@ class App extends Component {
                      {this.state.volunteerEvents.map(volunteerEvent=> {
                        return (
                          <ResultsListItem
-                          //  key={volunteerEvent.id}
-                          //  eventTitle={volunteerEvent.eventTitle}
+                           key={volunteerEvent.id}
+                           eventTitle={volunteerEvent.eventTitle}
+                             eventDate={volunteerEvent.eventDate}
                           //   description={volunteerEvent.description}
-                          //   eventDate={volunteerEvent.eventDate}
                           //   eventTime={volunteerEvent.eventTime}
                           //   organization={volunteerEvent.organization}
                           //   experience={volunteerEvent.experience}
