@@ -87,7 +87,7 @@ class Form extends Component {
         <form>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Username - Email"
             name="username"
             value={this.state.username}
             onChange={this.handleInputChange}

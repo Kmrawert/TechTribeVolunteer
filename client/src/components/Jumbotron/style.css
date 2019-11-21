@@ -1,6 +1,6 @@
 .jumbotron {
   /* min-height: 300px; */
-  padding-top:21.25%;
+  padding-top:3rem;
   background-image: url(https://irp-cdn.multiscreensite.com/520e9c30/dms3rep/multi/Depositphotos_199511230_xl-2015RESIZED.jpg);
   background-size:cover;
 }
@@ -8,7 +8,6 @@
 .title {
 
   background: none;
-  top: -150px;
   border: none;
 
 }

@@ -10,7 +10,7 @@ function Nav() {
       <div className="navButtons">
       <a className="navbar-brand" href="/Login"> Login </a>
       <a className="navbar-brand" href="/EventForm"> Create Event </a>
-      <a className="navbar-brand" href="/Volunteer"> Volunteer </a>
+      {/* <a className="navbar-brand" href="/Volunteer"> Volunteer </a> */}
       <a className="navbar-brand" href="/UserProfile"> UserProfile </a>
       </div>
     </nav>

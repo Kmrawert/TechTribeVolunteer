@@ -4,6 +4,11 @@ const dB = require("../models");
 
 const sgMail = require("@sendgrid/mail");
 const SENDGRID_API_KEY = require("../sendgrid.env");
+const express = require('express')
+const router = express.Router()
+const dB= require('../models')
+const eventsController = require('../controller/eventsController')
+
 
 router.post("/api/events", function(req, res) {
   // Create a new note and pass the req.body to the entry
@@ -22,6 +27,7 @@ router.post("/api/events", function(req, res) {
         html: "<strong>Thank you for creating a new event!</strong>"
       };
       sgMail.send(createMsg);
+      res.json("posted successfully");
     })
     //populates user who created event
     .populate("User")
@@ -29,6 +35,9 @@ router.post("/api/events", function(req, res) {
       res.json(err);
     });
 });
+
+router.route("/")
+.get(eventsController.findAll);
 
 router.get("/events/:zipcode", function(req, res) {
   // Events.find({zipcode: req.params.zipcode})
