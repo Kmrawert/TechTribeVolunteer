@@ -13,6 +13,8 @@ import API from "./utils/API";
 import UserProfile from "../src/components/UserProfile";
 import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
+// import Details from "./components/Details";
+
 class App extends Component {
   state = {
     volunteerEvents: [],
@@ -24,6 +26,24 @@ class App extends Component {
       [name]: value
     });
   };
+
+  getAllEvents = () => {
+    API.getEvents().then(res => this.setState({
+      volunteerEvents: res.data
+    })
+
+    ).catch(() =>
+      this.setState({
+        volunteerEvents: []
+      })
+    )
+  }
+
+  handleEventDisplay = event => {
+    event.preventDefault();
+    this.getAllEvents();
+  };
+
   handleFormSubmit = event => {
     event.preventDefault();
     API.saveEvent(this.state.eventInfo)
@@ -32,6 +52,7 @@ class App extends Component {
         this.setState({ volunteerEvents: res.data.items })
       })
       .catch(err => console.log(err));
+
   };
   render() {
     return (
@@ -77,28 +98,28 @@ class App extends Component {
                   <Route exact path="/EventForm" component={EventForm} />
                   <Route exact path="/Volunteer" component={Volunteer} />
                   <Route exact path="/UserProfile" component={UserProfile} />
-                  {/* {/ <Route path="/" component={Login} /> */}  
-             </div>
-              
-                   <ResultsList>
-                     {this.state.volunteerEvents.map(volunteerEvent=> {
-                       return (
-                         <ResultsListItem
-                          //  key={volunteerEvent.id}
-                          //  eventTitle={volunteerEvent.eventTitle}
-                          //   description={volunteerEvent.description}
-                          //   eventDate={volunteerEvent.eventDate}
-                          //   eventTime={volunteerEvent.eventTime}
-                          //   organization={volunteerEvent.organization}
-                          //   experience={volunteerEvent.experience}
-                          //   zipcode={volunteerEvent.zipcode}
-                          //   volNum={volunteerEvent.volNum}
-                          //   link={volunteerEvent.link}
-                         />
-                       );
-                     })}
-                   </ResultsList>
-                  
+                  {/* {/ <Route path="/" component={Login} /> */}
+                </div>
+                {/* <Details /> */}
+
+                <ResultsList>
+                  {this.state.volunteerEvents.map(volunteerEvent => {
+                    return (
+                      <ResultsListItem
+                        key={volunteerEvent.id}
+                        eventTitle={volunteerEvent.eventTitle}
+                        eventDate={volunteerEvent.eventDate}
+                      // description={volunteerEvent.description}
+                      // eventTime={volunteerEvent.eventTime}
+                      // organization={volunteerEvent.organization}
+                      // experience={volunteerEvent.experience}
+                      // zipcode={volunteerEvent.zipcode}
+                      // volNum={volunteerEvent.volNum}
+                      // link={volunteerEvent.link}
+                      />
+                    );
+                  })}
+                </ResultsList>
               </Col>
             </Row>
           </Container>

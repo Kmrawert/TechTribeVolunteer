@@ -63,11 +63,11 @@ class Form extends Component {
      } else {
       return (
         <form>
-          <p>Username: {this.state.username}</p>
-          <p>Password: {this.state.password}</p>
+          {/* <p>{this.state.username}</p>
+          <p>{this.state.password}</p> */}
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Username - Email"
             name="username"
             value={this.state.username}
             onChange={this.handleInputChange}
@@ -79,7 +79,8 @@ class Form extends Component {
             value={this.state.password}
             onChange={this.handleInputChange}
           />
-          <button onClick={this.handleFormSubmit}>Submit</button>
+          <button onClick={this.handleFormSubmit}>Log In</button>
+          <button onClick={this.handleFormSubmit}>Sign Up</button>
         </form>
       );
     }

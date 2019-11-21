@@ -1,79 +1,55 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
 import "./style.css";
+import { ResultsList, ResultsListItem } from "../ResultsList";
 
 
 class Home extends Component {
-    render() {
-        return (
-            <div id="home">
-            {/* <h1>Home!!!!!!!!!!!!!!!</h1> */}
-            <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+  render() {
+    return (
+      <div id="resultsDisplay">
+        {/* // <div id="home">
+      //   <table class="table">
+      //     <thead class="thead-dark">
+      //       <tr>
+      //         <th scope="col"></th>
+      //         <th scope="col">Event Title</th>
+      //         <th scope="col">Event Date</th>
+      //         <th scope="col"></th>
+      //         <th scope="col"></th>
+      //       </tr>
+      //     </thead>
+      //     <tbody>
+      //       <tr>
+      //         <th scope="row">1</th>
+      //         <td>Marathon Volunteers Needed</td>
+      //         <td>01/14/2020</td>
+      //         <td>Details</td>
+      //         <td>Volunteer</td>
+      //       </tr>
+      //       <tr>
+      //       <th scope="row">2</th>
+      //         <td>Soup Kitchen Volunteers</td>
+      //         <td>06/14/2020</td>
+      //         <td>Details</td>
+      //         <td>Volunteer</td>
+      //       </tr>
+      //       <tr>
+      //       <th scope="row">3</th>
+      //         <td>Donation Organizers Needed</td>
+      //         <td>11/28/2020</td>
+      //         <td>Details</td>
+      //         <td>Volunteer</td>
+      //       </tr>
+      //     </tbody>
+      //   </table> */}
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-        )
-    } 
-
+        <ResultsList>
+          <ResultsListItem />
+        </ResultsList>
+      </div>
+    )
+  }
 }
 
-export default Home; 
+export default Home;
 

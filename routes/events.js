@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const dB= require('../models')
+const eventsController = require('../controller/eventsController')
 
 
 router.post("/api/events", function(req, res) {
@@ -9,12 +10,15 @@ router.post("/api/events", function(req, res) {
   console.log(req.body)
   dB.event.create(req.body)
     .then(function() {
-      res.json("success");
+      res.json("posted successfully");
     })
     .catch(function(err) {
       res.json(err);
     });
 });
+
+router.route("/")
+.get(eventsController.findAll);
 
 router.get("/events/:zipcode", function(req, res) {
   // Events.find({zipcode: req.params.zipcode})
