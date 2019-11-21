@@ -11,6 +11,8 @@ const events = require("./models/events.js");
 const userRoute = require("./routes/users.js");
 const eventRoute = require("./routes/events.js");
 
+//testing with heroku
+
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
 var MONGODB_URI = process.env.MONGODB_URI ||  "mongodb://localhost/volunteer";
