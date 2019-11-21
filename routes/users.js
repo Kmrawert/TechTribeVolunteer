@@ -4,7 +4,7 @@ const User = require("../models/users");
 const passport = require("../passport");
 
 const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = require("../sendgrid.env")
+const SENDGRID_API_KEY = require("../sendgrid.env");
 
 // var dataUsers = {
 //     username: "molly_patterson@test.com",
@@ -38,9 +38,9 @@ router.post("/", (req, res) => {
         if (err) return res.json(err);
         res.json(savedUser);
       });
-      sgMail.setApiKey(SENDGRID_API_KEY);
+      sgMail.setApiKey(SENDGRID_API_KEY || "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");
       const WelcomeMsg = {
-        to: newUser,
+        to: username,
         from: "admin@communityconnect.com",
         subject: "Welcome to Community Connect!",
         text: "Thank you for joining Community Connect!",

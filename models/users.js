@@ -45,7 +45,6 @@ userSchema.methods = {
 // Define hooks for pre-saving
 userSchema.pre("save", function(next) {
   if (!this.password) {
-    
     console.log("models/user.js =======NO PASSWORD PROVIDED=======");
     next();
   } else {

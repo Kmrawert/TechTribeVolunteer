@@ -33,9 +33,6 @@ body{margin-top:20px;
         padding: 10px;
     }
     
-    
-                        
-       
     @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
     
     .btn.btn-social{
@@ -67,9 +64,6 @@ body{margin-top:20px;
       opacity: 0.9;
     }
     
-   
-    
-    
     .bs-callout {
         background: white;
         border-color: #eee;
@@ -99,10 +93,6 @@ body{margin-top:20px;
      max-width: 170px;
     max-height: 170px;
     }
-    
-    
-    
-    
     
     @media (max-width: 992px) {
       .resume-heading .social-btn-holder{

@@ -58,8 +58,8 @@ var eventsSchema = new Schema({
   eventdate: {
     type: Date,
     default: new Date(),
-    min: '2019-11-20',
-    max: '2023-12-31'
+    min: "2019-11-20",
+    max: "2023-12-31"
   },
   eventtime: {
     type: String
