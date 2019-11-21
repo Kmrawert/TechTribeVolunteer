@@ -171,6 +171,25 @@ class App extends Component {
                 {/* {/ <Route path="/" component={Login} /> */}
                 {/* </div> */}
                 {/* <Details /> */}
+
+                <ResultsList>
+                  {/* {this.state.volunteerEvents.map(volunteerEvent => {
+                    return (
+                      <ResultsListItem
+                        key={volunteerEvent.id}
+                        eventTitle={volunteerEvent.eventTitle}
+                        eventDate={volunteerEvent.eventDate}
+                      // description={volunteerEvent.description}
+                      // eventTime={volunteerEvent.eventTime}
+                      // organization={volunteerEvent.organization}
+                      // experience={volunteerEvent.experience}
+                      // zipcode={volunteerEvent.zipcode}
+                      // volNum={volunteerEvent.volNum}
+                      // link={volunteerEvent.link}
+                      />
+                    );
+                  })} */}
+                </ResultsList>
               </Col>
             </Row>
           </Container>

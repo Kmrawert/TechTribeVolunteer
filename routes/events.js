@@ -2,11 +2,9 @@ const express = require("express");
 const router = express.Router();
 const dB = require("../models");
 
-const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = require("../sendgrid.env");
-const express = require('express')
-const router = express.Router()
-const dB= require('../models')
+// const sgMail = require("@sendgrid/mail");
+// const SENDGRID_API_KEY = require("../sendgrid.env");
+
 const eventsController = require('../controller/eventsController')
 
 
@@ -17,16 +15,16 @@ router.post("/api/events", function(req, res) {
     .create(req.body)
     .then(function() {
       res.json("success");
-      sgMail.setApiKey(SENDGRID_API_KEY);
-      const createMsg = {
-        to: newUser,
-        from: "admin@communityconnect.com",
-        subject: "You've Created a New Volunteer Event",
-        text:
-          "Thank you for creating a new event! We will review your submission and reach out to you within 24 hours!",
-        html: "<strong>Thank you for creating a new event!</strong>"
-      };
-      sgMail.send(createMsg);
+      // sgMail.setApiKey(SENDGRID_API_KEY);
+      // const createMsg = {
+      //   to: newUser,
+      //   from: "admin@communityconnect.com",
+      //   subject: "You've Created a New Volunteer Event",
+      //   text:
+      //     "Thank you for creating a new event! We will review your submission and reach out to you within 24 hours!",
+      //   html: "<strong>Thank you for creating a new event!</strong>"
+      // };
+      // sgMail.send(createMsg);
       res.json("posted successfully");
     })
     //populates user who created event
