@@ -10,12 +10,12 @@ const passport = require('./passport');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const apiRoutes = require("./routes/apiRoutes");
-
+const fileUpload = require('express-fileupload')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
 // const dbConnection = require('./models')
-const events = require("./models/events.js");
-// const users = require('./models/users.js')
-const userRoute = require("./routes/users.js");
-const eventRoute = require("./routes/events.js");
+const events = require("./models/event.js");
+
 //const populate = require('./routes/populate.js')
 
 
@@ -29,12 +29,18 @@ var MONGODB_URI =
 mongoose.connect(MONGODB_URI);
 
 app.use(morgan("dev"));
+app.use(cors())
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(cookieParser())
+app.use(fileUpload())
 
 // app.use(
 // 	session({
@@ -57,14 +63,14 @@ app.use(passport.session()); // calls the deserializeUser
 // });
 
 
-events.create(dataEvents)
-  .then(function(dbEvents) {
-    // If saved successfully, print the new Example document to the console
-    console.log(dbEvents);
-  })
-  .catch(function(err) {
-    console.log(err.message);
-  });
+// events.create(dataEvents)
+//   .then(function(dbEvents) {
+//     // If saved successfully, print the new Example document to the console
+//     console.log(dbEvents);
+//   })
+//   .catch(function(err) {
+//     console.log(err.message);
+//   });
 
 function populateDB() {
   var dataEvents = {
@@ -117,9 +123,35 @@ app.use(express.json());
 //   app.use(express.static("client/build"));
 // }
 
-if (true) {
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+
+app.post('/upload', function (req, res, next)   {
+  let uploadFile = req.files.file
+  const fileName = req.files.file.name
+  console.log("file loading..",`${__dirname}/client/public/files/${fileName}`)
+
+  uploadFile.mv(
+    `${__dirname}/client/public/files/${fileName}`,
+    function (err) {
+      if (err) {
+        return res.status(500).send(err)
+      }
+
+      res.json({
+        file: `${req.files.file.name}`,
+      })
+    },
+  )
+})
+
+// const users = require('./models/users.js')
+const userRoute = require("./routes/users.js");
+const eventRoute = require("./routes/events.js");
 
 // Use apiRoutes // from recipes, need?
 app.use("/api", apiRoutes);

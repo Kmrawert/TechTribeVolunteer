@@ -25,6 +25,9 @@ class UserProfile extends Component {
                               <ul className="list-group">
                                  {/* <Login/> */}
                                  <li className="list-group-item" contentEditable="false" input type="text" id="username" name="username">Username: </li>
+                                 <li className = "list-group-item">Name</li>
+                                 <li className = "list-group-item">Phone</li>
+                                 <li className = "list-group-item">Email</li>
                                  <li className="list-group-item" contentEditable="true" input type="password" id="pass" nred ><button type="button" className="btn btn-primary btn-sm" onclick="Function();"><Password/></button></li>
                                  
                              
@@ -43,9 +46,9 @@ class UserProfile extends Component {
                         <table className="table table-hover" >
                            <thead>
                               <tr>
-                                 <th scope="col">Title</th>
-                                 <th scope="col">Location</th>
-                                 <th scope="col">Date</th>
+              <th scope="col">Post Date</th>
+              <th scope="col">Event Date</th>
+              <th scope="col">Title</th>
                                  <th scope="col">Number of Volunteers</th>
                                  <th scope="col">Get details</th>
                               </tr>
@@ -84,10 +87,10 @@ class UserProfile extends Component {
 
                         <table className="table table-hover">
                            <thead>
-                              <tr>
-                                 <th scope="col">Title</th>
-                                 <th scope="col">Location</th>
-                                 <th scope="col">Date</th>
+                           <tr>
+              <th scope="col">Post Date</th>
+              <th scope="col">Event Date</th>
+              <th scope="col">Title</th>
                                  <th scope="col">Number of Volunteers</th>
                                  <th scope="col">Get details</th>
                               </tr>
