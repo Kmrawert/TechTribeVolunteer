@@ -156,7 +156,7 @@ class App extends Component {
                       />
                     )}
                     {...this.state.loggedIn && (
-                      <div id="molly"> testing</div>
+                      <div id="username"> testing</div>
                     )}
                   />
 

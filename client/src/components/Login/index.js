@@ -39,6 +39,7 @@ class Form extends Component {
           this.props.updateUser({
             loggedIn: true,
             username: response.data.username
+// USE this to pass back to user!!
           });
           this.setState({
             redirectTo: "/UserProfile"
