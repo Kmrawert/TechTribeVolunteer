@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const dB = require("../models");
+const dBevents = require("../models/events");
 
 // const sgMail = require("@sendgrid/mail");
 // const SENDGRID_API_KEY = require("../sendgrid.env");
@@ -11,7 +11,7 @@ const eventsController = require('../controller/eventsController')
 router.post("/api/events", function(req, res) {
   // Create a new note and pass the req.body to the entry
   console.log(req.body);
-  dB.event
+  dBevents.event
     .create(req.body)
     .then(function() {
       res.json("success");
