@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require("../models/users");
 const passport = require("../passport");
 
+const sgMail = require("@sendgrid/mail");
+const SENDGRID_API_KEY = require("../sendgrid.env")
+
 // var dataUsers = {
 //     username: "molly_patterson@test.com",
 //     password: "testing",
@@ -35,9 +38,10 @@ router.post("/", (req, res) => {
         if (err) return res.json(err);
         res.json(savedUser);
       });
+      sgMail.setApiKey(SENDGRID_API_KEY);
       const WelcomeMsg = {
         to: newUser,
-        from: "mollyanne.patterson@outlook.com",
+        from: "admin@communityconnect.com",
         subject: "Welcome to Community Connect!",
         text: "Thank you for joining Community Connect!",
         html: "<strong>Thank you for joining Community Connect!</strong>"

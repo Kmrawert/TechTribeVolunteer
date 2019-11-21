@@ -44,9 +44,8 @@ class Form extends Component {
                 loggedIn: true,
                 username: response.data.username
             })
-            // update the state to redirect to home
             this.setState({
-                redirectTo: '/'
+                redirectTo: '/UserProfile'
             })
         }
     }).catch(error => {
@@ -71,9 +70,9 @@ class Form extends Component {
 				console.log(response)
 				if (!response.data.errmsg) {
 					console.log('successful signup')
-					// this.setState({ //redirect to login page
-					// 	redirectTo: '/'
-					// })
+					this.setState({ //redirect to login page
+						redirectTo: '/UserProfile'
+					})
 				} else {
 					console.log('username already taken')
 				}
