@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
         if (err) return res.json(err);
         res.json(savedUser);
       });
-      sgMail.setApiKey(SENDGRID_API_KEY || "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");
+      sgMail.setApiKey(SENDGRID_API_KEY);
       const WelcomeMsg = {
         to: username,
         from: "admin@communityconnect.com",

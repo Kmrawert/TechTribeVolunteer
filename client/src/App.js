@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -29,16 +29,18 @@ class App extends Component {
   };
 
   getAllEvents = () => {
-    API.getEvents().then(res => this.setState({
-      volunteerEvents: res.data
-    })
-
-    ).catch(() =>
-      this.setState({
-        volunteerEvents: []
-      })
-    )
-  }
+    API.getEvents()
+      .then(res =>
+        this.setState({
+          volunteerEvents: res.data
+        })
+      )
+      .catch(() =>
+        this.setState({
+          volunteerEvents: []
+        })
+      );
+  };
 
   handleEventDisplay = event => {
     event.preventDefault();
@@ -49,52 +51,50 @@ class App extends Component {
     event.preventDefault();
     API.saveEvent(this.state.eventInfo)
       .then(res => {
-        console.log(res.data.items)
-        this.setState({ volunteerEvents: res.data.items })
+        console.log(res.data.items);
+        this.setState({ volunteerEvents: res.data.items });
       })
       .catch(err => console.log(err));
-
   };
   constructor() {
-    super()
+    super();
     this.state = {
       loggedIn: false,
       username: null
-    }
+    };
 
-    this.getUser = this.getUser.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-    this.updateUser = this.updateUser.bind(this)
+    this.getUser = this.getUser.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
   componentDidMount() {
-    this.getUser()
+    this.getUser();
   }
 
   updateUser(userObject) {
-    this.setState(userObject)
+    this.setState(userObject);
   }
 
-
   getUser() {
-    axios.get('/user/').then(response => {
-      console.log('Get user response: ')
-      console.log(response.data)
+    axios.get("/user/").then(response => {
+      console.log("Get user response: ");
+      console.log(response.data);
       if (response.data.user) {
-        console.log('Get User: There is a user saved in the server session: ')
+        console.log("Get User: There is a user saved in the server session: ");
 
         this.setState({
           loggedIn: true,
           username: response.data.user.username
-        })
+        });
       } else {
-        console.log('Get user: no user');
+        console.log("Get user: no user");
         this.setState({
           loggedIn: false,
           username: null
-        })
+        });
       }
-    })
+    });
   }
 
   render() {
@@ -102,7 +102,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <Jumbotron >
+          <Jumbotron>
             <Container>
               <Row>
                 <Col size="md-12">
@@ -121,9 +121,10 @@ class App extends Component {
                           <Button
                             onClick={this.handleFormSubmit}
                             type=""
-                            className="input-lg">
+                            className="input-lg"
+                          >
                             Search
-                     </Button>
+                          </Button>
                         </Col>
                       </Row>
                     </Container>
@@ -135,13 +136,40 @@ class App extends Component {
           <Container>
             <Row>
               <Col size="xs-12">
-                <div id='routes'>
+                <div id="routes">
                   <Route exact path="/" component={Home} />
-                  <Route path="/login" render={() => <Login updateUser={this.updateUser} />} />
+                  <Route
+                    path="/login"
+                    render={() => <Login updateUser={this.updateUser} />}
+                  />
                   {/* <Route exact path="/Login" component={Login} /> */}
                   <Route exact path="/EventForm" component={EventForm} />
                   <Route exact path="/Volunteer" component={Volunteer} />
-                  <Route exact path="/UserProfile" component={UserProfile} />
+                  {/* <Route exact path="/UserProfile" component={UserProfile} /> */}
+                  <Route
+                    exact
+                    path="/UserProfile"
+                    render={() => (
+                      <UserProfile
+                        updateUser={this.updateUser}
+                        loggedIn={this.state.loggedIn}
+                      />
+                    )}
+                    {...this.state.loggedIn && (
+                      <div id="molly"> testing</div>
+                    )}
+                  />
+
+                  {/* component={UserProfile} /> */}
+
+                  {/* <UserProfile
+                    updateUser={this.updateUser}
+                    loggedIn={this.state.loggedIn}
+                  />
+                  {this.state.loggedIn && (
+                    <div id="molly"> {this.state.username}!</div>
+                  )} */}
+
                   {/* {/ <Route path="/" component={Login} /> */}
                 </div>
                 {/* <Details /> */}

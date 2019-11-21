@@ -28,7 +28,7 @@ router.post("/api/events", function(req, res) {
       res.json("posted successfully");
     })
     //populates user who created event
-    .populate("User")
+    // .populate("User")
     .catch(function(err) {
       res.json(err);
     });
@@ -47,7 +47,7 @@ router.get("/events/:zipcode", function(req, res) {
     }
   })
     //populate user on sign up
-    .populate("User")
+    // .populate("User")
     // .sort({ eventdate: -1 })
     .then(function(dbEvent) {
       // res.json(dbEvent);
