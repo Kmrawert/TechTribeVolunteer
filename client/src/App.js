@@ -20,6 +20,7 @@ class App extends Component {
     volunteerEvents: [],
     eventInfo: ""
   };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -54,6 +55,48 @@ class App extends Component {
       .catch(err => console.log(err));
 
   };
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  updateUser(userObject) {
+    this.setState(userObject)
+  }
+
+
+  getUser() {
+    axios.get('/user/').then(response => {
+      console.log('Get user response: ')
+      console.log(response.data)
+      if (response.data.user) {
+        console.log('Get User: There is a user saved in the server session: ')
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username
+        })
+      } else {
+        console.log('Get user: no user');
+        this.setState({
+          loggedIn: false,
+          username: null
+        })
+      }
+    })
+  }
+
   render() {
     return (
       <Router>
@@ -94,32 +137,36 @@ class App extends Component {
               <Col size="xs-12">
                 <div id='routes'>
                   <Route exact path="/" component={Home} />
-                  <Route exact path="/Login" component={Login} />
+                  <Route path="/login" render={() => <Login updateUser={this.updateUser} />} />
+                  {/* <Route exact path="/Login" component={Login} /> */}
                   <Route exact path="/EventForm" component={EventForm} />
                   <Route exact path="/Volunteer" component={Volunteer} />
                   <Route exact path="/UserProfile" component={UserProfile} />
+                  {/* {/ <Route path="/" component={Login} /> */}  
+             </div>
+              
+                   <ResultsList>
+                     {this.state.volunteerEvents.map(volunteerEvent=> {
+                       return (
+                         <ResultsListItem
+                           key={volunteerEvent.id}
+                           eventTitle={volunteerEvent.eventTitle}
+                             eventDate={volunteerEvent.eventDate}
+                          //   description={volunteerEvent.description}
+                          //   eventTime={volunteerEvent.eventTime}
+                          //   organization={volunteerEvent.organization}
+                          //   experience={volunteerEvent.experience}
+                          //   zipcode={volunteerEvent.zipcode}
+                          //   volNum={volunteerEvent.volNum}
+                          //   link={volunteerEvent.link}
+                         />
+                       );
+                     })}
+                   </ResultsList>
+                  
                   {/* {/ <Route path="/" component={Login} /> */}
                 </div>
                 {/* <Details /> */}
-
-                <ResultsList>
-                  {this.state.volunteerEvents.map(volunteerEvent => {
-                    return (
-                      <ResultsListItem
-                        key={volunteerEvent.id}
-                        eventTitle={volunteerEvent.eventTitle}
-                        eventDate={volunteerEvent.eventDate}
-                      // description={volunteerEvent.description}
-                      // eventTime={volunteerEvent.eventTime}
-                      // organization={volunteerEvent.organization}
-                      // experience={volunteerEvent.experience}
-                      // zipcode={volunteerEvent.zipcode}
-                      // volNum={volunteerEvent.volNum}
-                      // link={volunteerEvent.link}
-                      />
-                    );
-                  })}
-                </ResultsList>
               </Col>
             </Row>
           </Container>

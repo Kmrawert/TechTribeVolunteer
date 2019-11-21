@@ -3,5 +3,7 @@ div.thumbnail {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 0%;
+  max-width: 450px;
+  max-height: 250px;
 }

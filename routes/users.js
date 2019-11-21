@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require("../models/users");
 const passport = require("../passport");
 
+const sgMail = require("@sendgrid/mail");
+const SENDGRID_API_KEY = require("../sendgrid.env");
+
 // var dataUsers = {
 //     username: "molly_patterson@test.com",
 //     password: "testing",
@@ -19,7 +22,6 @@ router.post("/", (req, res) => {
   console.log("user signup");
 
   const { username, password } = req.body;
-  // ADD VALIDATION
   User.findOne({ username: username }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
@@ -36,6 +38,15 @@ router.post("/", (req, res) => {
         if (err) return res.json(err);
         res.json(savedUser);
       });
+      sgMail.setApiKey(SENDGRID_API_KEY || "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");
+      const WelcomeMsg = {
+        to: username,
+        from: "admin@communityconnect.com",
+        subject: "Welcome to Community Connect!",
+        text: "Thank you for joining Community Connect!",
+        html: "<strong>Thank you for joining Community Connect!</strong>"
+      };
+      sgMail.send(WelcomeMsg);
     }
   }).populate("Event");
 });
