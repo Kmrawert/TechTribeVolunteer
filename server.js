@@ -14,7 +14,7 @@ const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 // const dbConnection = require('./models')
-const events = require("./models/event.js");
+const events = require("./models/events.js");
 
 //const populate = require('./routes/populate.js')
 
