@@ -142,7 +142,6 @@ class App extends Component {
                   <Route exact path="/EventForm" component={EventForm} />
                   <Route exact path="/Volunteer" component={Volunteer} />
                   <Route exact path="/UserProfile" component={UserProfile} />
-<<<<<<< HEAD
                   {/* {/ <Route path="/" component={Login} /> */}  
              </div>
               
@@ -165,30 +164,9 @@ class App extends Component {
                      })}
                    </ResultsList>
                   
-=======
                   {/* {/ <Route path="/" component={Login} /> */}
                 </div>
                 {/* <Details /> */}
-
-                <ResultsList>
-                  {this.state.volunteerEvents.map(volunteerEvent => {
-                    return (
-                      <ResultsListItem
-                        key={volunteerEvent.id}
-                        eventTitle={volunteerEvent.eventTitle}
-                        eventDate={volunteerEvent.eventDate}
-                      // description={volunteerEvent.description}
-                      // eventTime={volunteerEvent.eventTime}
-                      // organization={volunteerEvent.organization}
-                      // experience={volunteerEvent.experience}
-                      // zipcode={volunteerEvent.zipcode}
-                      // volNum={volunteerEvent.volNum}
-                      // link={volunteerEvent.link}
-                      />
-                    );
-                  })}
-                </ResultsList>
->>>>>>> 5eb6b8d9d42d503eceab79a787bc3b60ceacd249
               </Col>
             </Row>
           </Container>
