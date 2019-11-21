@@ -125,7 +125,7 @@ class App extends Component {
                   {/* {/ <Route path="/" component={Login} /> */}  
              </div>
               
-                   {/* <ResultsList>
+                   <ResultsList>
                      {this.state.volunteerEvents.map(volunteerEvent=> {
                        return (
                          <ResultsListItem
@@ -142,7 +142,7 @@ class App extends Component {
                          />
                        );
                      })}
-                   </ResultsList> */}
+                   </ResultsList>
                   
               </Col>
             </Row>
