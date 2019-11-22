@@ -1,7 +1,7 @@
 module.exports = {
-    event: require("./events"),
-    users: require("./users")
-  };
+  event: require("./events"),
+  users: require("./users")
+};
 
 // const mongoose = require('mongoose')
 // mongoose.Promise = global.Promise
@@ -18,7 +18,7 @@ module.exports = {
 //     err => {
 //          console.log('error connecting to Mongo: ')
 //          console.log(err);
-         
+
 //         }
 //   );
 

@@ -13,7 +13,7 @@ const eventRoute = require("./routes/events.js");
 
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
-var MONGODB_URI = process.env.MONGODB_URI ||  "mongodb://localhost/volunteer";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/volunteer";
 
 mongoose.connect(MONGODB_URI);
 
@@ -78,10 +78,10 @@ function populateDB() {
 
     events
       .create(copy)
-      .then(function(dbEvents) {
+      .then(function (dbEvents) {
         console.log("testing", dbEvents);
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err.message);
       });
   }
@@ -106,19 +106,19 @@ app.use('/user', userRoute);
 
 app.use(eventRoute);
 
-app.get("/api/events", function(req, res) {
-  events.find({}, function(err, found) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json({ test: "testing" });
-    }
-  });
-});
+// app.get("/api/events", function (req, res) {
+//   events.find({}, function (err, found) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.json({ test: "testing" });
+//     }
+//   });
+// });
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

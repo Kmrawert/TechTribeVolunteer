@@ -13,6 +13,7 @@ router.post("/api/events", function(req, res) {
   console.log(req.body);
   dB.event
     .create(req.body)
+    // .populate("User")
     .then(function() {
       res.json("success");
       // sgMail.setApiKey(SENDGRID_API_KEY);
@@ -28,7 +29,6 @@ router.post("/api/events", function(req, res) {
       res.json("posted successfully");
     })
     //populates user who created event
-    .populate("User")
     .catch(function(err) {
       res.json(err);
     });
