@@ -51,6 +51,7 @@ router.post("/", (req, res) => {
   }).populate("Event");
 });
 
+//call this
 router.post(
   "/login",
   function(req, res, next) {

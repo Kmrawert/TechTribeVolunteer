@@ -22,7 +22,6 @@ https://communityconnectvolunteer.herokuapp.com/
   - top volunteers/charities in your area
   - event review
 
-
 # Tech
 
   - ReactJS
@@ -38,7 +37,7 @@ https://communityconnectvolunteer.herokuapp.com/
 
 Install the dependencies and devDependencies and start the server.
 
-```sh
+```
 $ cd TechTribeVolunteer
 $ npm install
 ```

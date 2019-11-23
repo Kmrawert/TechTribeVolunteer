@@ -153,6 +153,7 @@ class App extends Component {
                       <UserProfile
                         updateUser={this.updateUser}
                         loggedIn={this.state.loggedIn}
+                        userInfo={this.userInfo}
                       />
                     )}
                     {...this.state.loggedIn && (
