@@ -46,6 +46,8 @@ class UserProfile extends Component {
                         <li className="list-group-item" >
                            {/* {/* <UserProfile> */}
                         {this.state.username}
+                        {/* {this.state.username && this.state.username.map(event => 
+                        <UserProfile user={usern.title} eventDate={isoToLocaleDate(event.eventdate)} />)} */}
                            {/* </UserProfile> */}
                           {" "}
                         </li>
