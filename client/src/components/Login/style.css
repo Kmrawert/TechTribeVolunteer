@@ -1,24 +1,26 @@
-.login{
-    border-radius: 10px;
-    
-}
-
-.login {
-display: inline-block;
-text-align: left;
+#login{
+padding: 2rem;
 
 }
 
-.login{
-   width: 100%;
-    margin: 0 auto;
-    padding: 30px 0;
-    }
-    
-   .login h3{
-    color: black;
-    position: relative;
-    text-align: center;
-    }
-    
-   
+.signup-btn{
+    padding: 1rem;
+}
+
+   .login-btn{
+padding: 1rem;
+   }
+
+   #routes {
+       width: 50%;
+       margin: auto;
+   }
+   .login input {
+       width: 100%;
+   }
+   h3 .log {
+       text-align: center;
+   }
+   .col-xs-12 {
+       width: 100%;
+   }

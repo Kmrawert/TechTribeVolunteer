@@ -92,10 +92,8 @@ class Form extends Component {
       return (
         <div className="login">
           <h3>Please Sign In</h3>
-          <form>
-            <button onClick={this.handleFormSignUp.bind(this)}>Sign Up</button>
-
-            <button onClick={this.handleFormLogin.bind(this)}>Log In</button>
+          <form id="login">
+            
             <br />
             <input
               type="text"
@@ -104,7 +102,7 @@ class Form extends Component {
               value={this.state.username}
               onChange={this.handleInputChange}
             />
-            <br />
+            <br/>
             <input
               type="password"
               placeholder="Password"
@@ -112,7 +110,9 @@ class Form extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
+<button className="signup-btn" onClick={this.handleFormSignUp.bind(this)}>Sign Up</button>
 
+<button className="login-btn" onClick={this.handleFormLogin.bind(this)}>Log In</button>
           </form>
         </div>
 
