@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
-import "../UserProfile/style.css"
-import FileUploader from "../FileUploader"
-import { ResultsList, ResultsListItem } from "../ResultsList";
+import "../UserProfile/style.css";
+import FileUploader from "../FileUploader";
+import * as axios from 'axios'
 
 function getUsername() {
    return localStorage.getItem('session')
@@ -15,8 +14,6 @@ class UserProfile extends Component {
    render() {
       return (
          <div id="user">
-
-
             <div className="row">
                <div className="col-xs-12 col-sm-6">
                   <div className="image"></div>
@@ -35,9 +32,6 @@ class UserProfile extends Component {
                </ul>
             </div>
 </div>
-
-
-
             <div className="row">
                <div className="col-lg-6">
                   <div className="bs-callout bs-callout-danger">
@@ -79,7 +73,6 @@ class UserProfile extends Component {
                      </table>
                   </div>
                </div>
-
 
                <div className="col-lg-6">
                   <div className="bs-callout bs-callout-danger">
@@ -124,16 +117,9 @@ class UserProfile extends Component {
                </div>
             </div>
          </div>
-       
-
-
-
-
-
 
       )
    }
-
 }
 
-export default UserProfile; 
+export default UserProfile;
