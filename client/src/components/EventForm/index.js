@@ -53,7 +53,7 @@ class EventForm extends Component {
     // }
     // };
 
-    this.props.history.push("/home")
+    // this.props.history.push("/home")
 
     API.saveEvent(userInput)
       .then(res => {
