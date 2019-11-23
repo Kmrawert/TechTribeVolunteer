@@ -40,7 +40,7 @@ class Form extends Component {
           this.props.updateUser({
             loggedIn: true,
             username: response.data.username
-// USE this to pass back to user!!
+            // USE this to pass back to user!!
           });
           this.setState({
             redirectTo: "/UserProfile"
@@ -90,30 +90,32 @@ class Form extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
-        <div className = "login">
+        <div className="login">
           <h3>Please Sign In</h3>
-        <form>
-          <input
-            type="text"
-            placeholder="Username - Email"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleInputChange}
-          />
-          <br/>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-          />
-          <button onClick={this.handleFormSignUp.bind(this)}>Sign Up</button>
-          <br/>
-          <button onClick={this.handleFormLogin.bind(this)}>Log In</button>
-        </form>
+          <form>
+            <button onClick={this.handleFormSignUp.bind(this)}>Sign Up</button>
+
+            <button onClick={this.handleFormLogin.bind(this)}>Log In</button>
+            <br />
+            <input
+              type="text"
+              placeholder="Username - Email"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChange}
+            />
+            <br />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputChange}
+            />
+
+          </form>
         </div>
-        
+
       );
     }
   }
