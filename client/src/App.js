@@ -29,7 +29,6 @@ class App extends Component {
     });
   };
 
-<<<<<<< HEAD
   getAllEvents = () => {
     API.getEvents()
       .then(res =>
@@ -43,7 +42,7 @@ class App extends Component {
         })
       );
   };
-=======
+
   // getAllEvents = () => {
 
   //   API.getEvents()
@@ -51,7 +50,6 @@ class App extends Component {
   //       console.log(res.data)
   //       this.setState({ volunteerEvents: res.data })
   //     })
->>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
 
   //     .catch((err) => {
   //       console.error(err)
@@ -68,7 +66,7 @@ class App extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
+
     API.saveEvent(this.state.eventInfo)
       .then(res => {
         console.log(res.data.items);
@@ -76,12 +74,12 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   };
-=======
+
     this.setState({zipcode: Number(this.state.zipcodeString)})
     console.log('zipcode', this.state.zipcode)
   }
 
->>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
+
   constructor() {
     super();
     this.state = {
