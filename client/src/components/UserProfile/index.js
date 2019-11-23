@@ -43,10 +43,10 @@ class UserProfile extends Component {
                     <div className="col-xs-12 col-sm-8">
                       <ul className="list-group">
                         {/* <li className="list-group-item">Name: </li> */}
-                        <li className="list-group-item" id="userInfo">
-                           {/* <UserProfile>
+                        <li className="list-group-item" >
+                           {/* {/* <UserProfile> */}
                         {this.state.username}
-                           </UserProfile> */}
+                           {/* </UserProfile> */}
                           {" "}
                         </li>
 
