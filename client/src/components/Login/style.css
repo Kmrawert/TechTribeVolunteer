@@ -1,3 +1,11 @@
-.form{
+.login{
     border-radius: 10px;
+    
 }
+
+.login {
+display: inline-block;
+text-align: left;
+
+}
+

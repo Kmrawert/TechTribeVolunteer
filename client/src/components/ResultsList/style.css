@@ -10,3 +10,12 @@
 p {
     width: fit-content;
 }
+
+#results{
+    border: 2px;
+    border-color: black;
+   width: 75vw;
+    border-style: solid;
+    margin-left: 0;
+    
+}
