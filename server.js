@@ -4,12 +4,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const passport = require('./passport');
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 const app = express();
-const apiRoutes = require("./routes/apiRoutes");
+const apiRoutes = require("./routes/api.routes");
 const events = require("./models/events.js");
 const userRoute = require("./routes/users.js");
-const eventRoute = require("./routes/events.js");
+// const eventRoute = require("./routes/events.js");
 
 //mongoose.connect("mongodb://localhost/volunteer", { useNewUrlParser: true });
 
@@ -100,11 +101,11 @@ if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static("client/build"));
 }
 
-app.use("/api", apiRoutes);
+app.use(apiRoutes);
 
 app.use('/user', userRoute);
 
-app.use(eventRoute);
+// app.use(eventRoute);
 
 // app.get("/api/events", function (req, res) {
 //   events.find({}, function (err, found) {
@@ -119,6 +120,8 @@ app.use(eventRoute);
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+console.log('PORT', PORT)
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
