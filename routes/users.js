@@ -4,7 +4,7 @@ const User = require("../models/users");
 const passport = require("../passport");
 
 const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = require("../sendgrid.env");
+// const SENDGRID_API_KEY = require("../sendgrid.env");
 
 // var dataUsers = {
 //     username: "molly_patterson@test.com",

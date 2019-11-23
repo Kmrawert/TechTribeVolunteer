@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import { Redirect } from 'react-router-dom'
 
 class EventForm extends Component {
   constructor(props) {
-    
+
     super(props);
-    this.state = { 
+    this.state = {
       eventTitle: "",
       description: "",
       eventDate: "",
@@ -15,7 +16,7 @@ class EventForm extends Component {
       zipcode: "",
       volNum: "",
       link: ""
-  };
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,10 +28,10 @@ class EventForm extends Component {
   }
 
   handleSubmit(event) {
-    alert('Event' + this.state.eventTitle + 'submitted');
+    // alert('Event' + this.state.eventTitle + 'submitted');
     event.preventDefault();
-    const userInput= {
-      title: this.state.eventTitle, 
+    const userInput = {
+      title: this.state.eventTitle,
       description: this.state.description,
       eventdate: this.state.eventDate,
       eventtime: this.state.eventTime,
@@ -45,13 +46,14 @@ class EventForm extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        alert('asdasdasd')
       })
   };
 
   render() {
     return (
       <div>
-       
+
         <form onSubmit={this.handleSubmit}>
           <label>
             Event Title:
