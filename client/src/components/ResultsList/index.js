@@ -64,5 +64,5 @@ export function ResultsListItem({ event }) {
         </Row>
       </Container>
     </li>
-  );
-}
+    );
+  }

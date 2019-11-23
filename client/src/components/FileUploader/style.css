@@ -46,9 +46,25 @@ body{margin-top:20px;
     .btn.btn-facebook {
     background-color: #3b5998;
     opacity:0.9;
-    }
-    .btn.btn-twitter {
-    background-color: #00aced;
+  }
+  .btn.btn-social:hover {
+    color: white;
+      opacity:1;
+  }
+  .btn.btn-facebook {
+  background-color: #3b5998;
+  opacity:0.9;
+  }
+  .btn.btn-twitter {
+  background-color: #00aced;
+  opacity:0.9;
+  }
+  .btn.btn-linkedin {
+  background-color:#0e76a8;
+  opacity:0.9;
+  }
+  .btn.btn-github{
+    background-color:#000000;
     opacity:0.9;
     }
     .btn.btn-linkedin {
