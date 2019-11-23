@@ -7,8 +7,6 @@ var Schema = mongoose.Schema;
 //link to website, picture, number of spots left, number of spots total
 
 var eventsSchema = new Schema({
-  // `string` must be of type String. We "trim" it to remove any trailing white space
-  // `string` is a required field, and a custom error message is thrown if it is not supplied
   title: {
     type: String,
     trim: true,
@@ -54,14 +52,14 @@ var eventsSchema = new Schema({
   },
   posteddate: {
     type: Date,
-    default: new Date() // time of post?
+    default: new Date()
     //use moment on front end, save as string
   },
   eventdate: {
     type: Date,
-    default: new Date()
-    // min: '2019-11-20',
-    // max: '2023-12-31'
+    default: new Date(),
+    min: "2019-11-20",
+    max: "2023-12-31"
   },
   eventtime: {
     type: String
@@ -70,8 +68,6 @@ var eventsSchema = new Schema({
   usercreator: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
-// This creates our model from the above schema, using mongoose's model method
 var event = mongoose.model("event", eventsSchema);
 
-// Export the Example model
 module.exports = event;

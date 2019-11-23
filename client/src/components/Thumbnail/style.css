@@ -1,6 +1,17 @@
+<<<<<<< HEAD
 div.thumbnail{
   width:100%;
   max-width:1000px;
+=======
+div.thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  padding-top: 0%;
+  max-width: 450px;
+  max-height: 250px;
+>>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
 }
 
 .img-responsive{
