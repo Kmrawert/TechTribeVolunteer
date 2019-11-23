@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as filestack from 'filestack-js';
-
+import "./style.css";
 
 
 
@@ -52,16 +52,15 @@ class FileUploader extends Component {
                     <div className="col-md-8 col-md-offset-2 text-center">
                         <div className="thumbnail">
                             <img id="filestack-pic" className="img-responsive" src={this.state.profileImage} />
-                      
+                            <button type="button" id="upload-btn" className="btn btn-filestack"  onClick={this.handleFileClick}>
+                            <i className="glyphicon glyphicon-upload"></i> Upload </button>
                         </div>
                     </div>
 
                 </div>
                
                     <div className="text-center">
-                        <button type="button" id="upload-btn" className="btn btn-filestack"  onClick={this.handleFileClick}>
-
-                            <i className="glyphicon glyphicon-upload"></i> Upload  </button>
+                        
                     
                 </div>
 

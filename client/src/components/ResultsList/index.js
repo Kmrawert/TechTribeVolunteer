@@ -31,7 +31,8 @@ export function ResultsList({ children }) {
 
 export function ResultsListItem({ event }) {
   return (
-    <li className="list-group-item">
+    
+    <li className="list-group-item" id = "results">
       <Container>
         {/* <GridHeader /> */}
         <Row>
@@ -76,6 +77,8 @@ export function ResultsListItem({ event }) {
           </Col>
         </Row>
       </Container>
+      
     </li>
+    
   );
 }
