@@ -3,7 +3,6 @@ import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Volunteer from "./components/Volunteer";
 import EventForm from "./components/EventForm";
 import Jumbotron from "./components/Jumbotron";
 import Nav from "./components/Nav";
@@ -68,29 +67,21 @@ class App extends Component {
     event.preventDefault();
 
     API.saveEvent(this.state.eventInfo)
-      .then(res => {
-        console.log(res.data.items);
-        this.setState({ volunteerEvents: res.data.items });
-      })
-      .catch(err => console.log(err));
-  };
-
     this.setState({zipcode: Number(this.state.zipcodeString)})
     console.log('zipcode', this.state.zipcode)
-  }
-
+  };
 
   constructor() {
     super();
     this.state = {
       loggedIn: false,
       username: null
-    };
+    }
 
     this.getUser = this.getUser.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
     this.updateUser = this.updateUser.bind(this);
-  }
+  };
 
   componentDidMount() {
     this.getUser();
@@ -165,7 +156,6 @@ class App extends Component {
                   <Route path="/login" render={() => <Login updateUser={this.updateUser} />} />
                   {/* <Route exact path="/Login" component={Login} /> */}
                   <Route exact path="/EventForm" component={EventForm} />
-                  <Route exact path="/Volunteer" component={Volunteer} />
                   {/* <Route exact path="/UserProfile" component={UserProfile} /> */}
                   <Route
                     exact
