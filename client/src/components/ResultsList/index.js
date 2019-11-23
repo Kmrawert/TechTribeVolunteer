@@ -60,11 +60,7 @@ export function ResultsListItem({ event }) {
         <Row>
           <Col size="xs-2 sm-2" />
           <Col size="xs-6 sm-6">
-<<<<<<< HEAD
-            <p> {eventTitle} </p>
-=======
             <p> {event.title} </p>
->>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
             {/* <p> Description: {description} </p> */}
             {/* <p> Time: {eventTime} </p>
             <p> Organization: {organization} </p>
@@ -80,9 +76,6 @@ export function ResultsListItem({ event }) {
             </a> */}
           </Col>
           <Col size="xs-4 sm-4">
-<<<<<<< HEAD
-            <p> {eventDate} </p>
-=======
             <p> {isoToLocaleDate(event.eventdate)} </p>
           </Col>
           <Col size="xs-4 sm-4">
@@ -90,7 +83,6 @@ export function ResultsListItem({ event }) {
           </Col>
           <Col size="xs-4 sm-4">
             <p> {event.description} </p>
->>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
           </Col>
         </Row>
       </Container>
