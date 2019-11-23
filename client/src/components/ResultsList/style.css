@@ -1,0 +1,12 @@
+.listWrap {
+    width: fit-content;
+    margin-right: 8px;
+
+}
+.listWrap p {
+    text-align: center;
+    width: fit-content;
+}
+p {
+    width: fit-content;
+}
