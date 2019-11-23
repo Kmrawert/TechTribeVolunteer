@@ -6,7 +6,7 @@ function Nav() {
   return (
     <div>
     <nav className="navbar sticky-top navbar-dark bg-dark">
-      <a className="navbar-brand" href="/Home"> Community Connect </a>
+      <a className="navbar-brand" href="/"> Community Connect </a>
       <div className="navButtons">
       <a className="navbar-brand" href="/Login"> Login </a>
       <a className="navbar-brand" href="/EventForm"> Create Event </a>
