@@ -4,7 +4,14 @@ import "../UserProfile/style.css"
 import FileUploader from "../FileUploader"
 import { ResultsList, ResultsListItem } from "../ResultsList";
 
+function getUsername() {
+   return localStorage.getItem('session')
+}
+
 class UserProfile extends Component {
+
+
+
    render() {
       return (
          <div id="user">
@@ -20,9 +27,9 @@ class UserProfile extends Component {
             <div className="col-xs-12 col-sm-6">
                <ul className="list-group">
                   <li className="list-group-item">Name: John Doe</li>
-                  <li className="list-group-item">Username: Engineer</li>
+                  <li className="list-group-item">{getUsername()}</li>
                   <li className="list-group-item"><i className="fa fa-phone"></i> 000-000-0000 </li>
-                  <li className="list-group-item"><i className="fa fa-envelope"></i> john@example.com</li>
+      <li className="list-group-item"><i className="fa fa-envelope"></i> {getUsername()}</li>
                   <li className="list-group-item">
                   </li>
                </ul>

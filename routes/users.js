@@ -22,6 +22,7 @@ router.post("/", (req, res) => {
   console.log("user signup");
 
   const { username, password } = req.body;
+
   User.findOne({ username: username }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
@@ -34,26 +35,49 @@ router.post("/", (req, res) => {
         username: username,
         password: password
       });
-      newUser.save((err, savedUser) => {
-        if (err) return res.json(err);
-        res.json(savedUser);
-      });
-      sgMail.setApiKey(SENDGRID_API_KEY || "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");
-      const WelcomeMsg = {
-        to: username,
-        from: "admin@communityconnect.com",
-        subject: "Welcome to Community Connect!",
-        text: "Thank you for joining Community Connect!",
-        html: "<strong>Thank you for joining Community Connect!</strong>"
-      };
-      sgMail.send(WelcomeMsg);
+
+      console.log('newUser', newUser)
+
+
+      // newUser.save((err, savedUser) => {
+      //   if (err) return res.json(err);
+      //   console.log('savedUser', savedUser)
+      //   res.json(savedUser);
+      // });
+
+
+      try {
+
+        sgMail.setApiKey(SENDGRID_API_KEY || "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");
+        const WelcomeMsg = {
+          to: username,
+          from: "admin@communityconnect.com",
+          subject: "Welcome to Community Connect!",
+          text: "Thank you for joining Community Connect!",
+          html: "<strong>Thank you for joining Community Connect!</strong>"
+        };
+        sgMail.send(WelcomeMsg);
+
+      } catch (err) {
+        console.error("Molly FIIIIX THISSSS!!!!!")
+      }
+      newUser.save()
+        .then(user => {
+            console.log('savedUser', user)
+            res.json(user);
+        })
+        .catch(err => {
+          console.error(err)
+          res.status(500).json(err)
+        })
+
     }
   }).populate("Event");
 });
 
 router.post(
   "/login",
-  function(req, res, next) {
+  function (req, res, next) {
     console.log("routes/user.js, login, req.body: ");
     console.log(req.body);
     next();

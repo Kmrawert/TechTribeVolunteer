@@ -65,6 +65,10 @@ class Form extends Component {
       .then(response => {
         console.log(response);
         if (!response.data.errmsg) {
+          const user = response.data
+
+          localStorage.setItem('session', user.username)
+
           console.log("successful signup");
           this.setState({
             redirectTo: "/UserProfile"
