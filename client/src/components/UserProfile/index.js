@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../UserProfile/style.css"
-import FileUploader from "../FileUploader"
-import { ResultsList, ResultsListItem } from "../ResultsList";
+import "../UserProfile/style.css";
+import FileUploader from "../FileUploader";
+import * as axios from 'axios'
 
 class UserProfile extends Component {
    render() {
