@@ -1,26 +1,16 @@
-#login{
-padding: 2rem;
+ #login{
 
+margin-left: 500px;
 }
 
 .signup-btn{
     padding: 1rem;
+   
 }
 
    .login-btn{
 padding: 1rem;
+
    }
 
-   #routes {
-       width: 50%;
-       margin: auto;
-   }
-   .login input {
-       width: 100%;
-   }
-   h3 .log {
-       text-align: center;
-   }
-   .col-xs-12 {
-       width: 100%;
-   }
+   
