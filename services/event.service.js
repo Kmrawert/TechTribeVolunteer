@@ -2,20 +2,21 @@ const db = require("../models");
 
 // Defining methods for the bookController
 module.exports = {
-  findAll: function(req, res) {
-    db.event.find(req.query)
-      .then(dbEvent => res.json(dbEvent))
-      .catch(err => res.status(422).json(err));
+  
+  
+  findAll: function(query) {
+    return db.event.find(query)
   },
-  findByZip: function(req, res) {
-    db.event.findByZip(req.params.zipcode)
-      .then(dbEvent => res.json(dbEvent))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.event.create(req.body)
-      .then(dbEvent => res.json(dbEvent))
-      .catch(err => res.status(422).json(err));
+
+
+  // findByZip: function(zipcode) {
+  //   return db.event.findByZip(zipcode)
+  // },
+
+
+  create: function(event) {
+
+    return db.event.create(event)
   }
   // update: function(req, res) {
   //   db.event.findOneAndUpdate({ id: req.params.id }, req.body)

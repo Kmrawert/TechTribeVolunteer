@@ -11,50 +11,51 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import API from "./utils/API";
 import UserProfile from "../src/components/UserProfile";
-import { ResultsList, ResultsListItem } from "./components/ResultsList";
 import { Container, Row, Col } from "./components/Grid";
 // import Details from "./components/Details";
 
 class App extends Component {
   state = {
     volunteerEvents: [],
-    eventInfo: ""
+    zipcode: 0,
+    zipcodeString: ''
   };
 
   handleInputChange = event => {
     const { name, value } = event.target;
+    console.log(name, value)
     this.setState({
       [name]: value
     });
   };
 
-  getAllEvents = () => {
-    API.getEvents().then(res => this.setState({
-      volunteerEvents: res.data
-    })
+  // getAllEvents = () => {
 
-    ).catch(() =>
-      this.setState({
-        volunteerEvents: []
-      })
-    )
-  }
+  //   API.getEvents()
+  //     .then((res) => {
+  //       console.log(res.data)
+  //       this.setState({ volunteerEvents: res.data })
+  //     })
 
-  handleEventDisplay = event => {
-    event.preventDefault();
-    this.getAllEvents();
-  };
+  //     .catch((err) => {
+  //       console.error(err)
+  //       this.setState({
+  //         volunteerEvents: []
+  //       })
+  //     })
+  // }
+
+  // handleEventDisplay = event => {
+  //   event.preventDefault();
+  //   this.getAllEvents();
+  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.saveEvent(this.state.eventInfo)
-      .then(res => {
-        console.log(res.data.items)
-        this.setState({ volunteerEvents: res.data.items })
-      })
-      .catch(err => console.log(err));
+    this.setState({zipcode: Number(this.state.zipcodeString)})
+    console.log('zipcode', this.state.zipcode)
+  }
 
-  };
   constructor() {
     super()
     this.state = {
@@ -111,8 +112,8 @@ class App extends Component {
                       <Row>
                         <Col size="xs-9 sm-10">
                           <Input
-                            name="eventInfo"
-                            value={this.state.eventInfo}
+                            name="zipcodeString"
+                            value={this.state.zipcodeString}
                             onChange={this.handleInputChange}
                             placeholder="Search by Zip Code for an Event"
                           />
@@ -136,7 +137,7 @@ class App extends Component {
             <Row>
               <Col size="xs-12">
                 <div id='routes'>
-                  <Route exact path="/" component={Home} />
+                  <Route exact path="/" component={() => <Home zipcode={this.state.zipcode} />} />
                   <Route path="/login" render={() => <Login updateUser={this.updateUser} />} />
                   {/* <Route exact path="/Login" component={Login} /> */}
                   <Route exact path="/EventForm" component={EventForm} />
@@ -144,26 +145,7 @@ class App extends Component {
                   <Route exact path="/UserProfile" component={UserProfile} />
                   {/* {/ <Route path="/" component={Login} /> */}
                 </div>
-                {/* <Details /> */}
 
-                <ResultsList>
-                  {/* {this.state.volunteerEvents.map(volunteerEvent => {
-                    return (
-                      <ResultsListItem
-                        key={volunteerEvent.id}
-                        eventTitle={volunteerEvent.eventTitle}
-                        eventDate={volunteerEvent.eventDate}
-                      // description={volunteerEvent.description}
-                      // eventTime={volunteerEvent.eventTime}
-                      // organization={volunteerEvent.organization}
-                      // experience={volunteerEvent.experience}
-                      // zipcode={volunteerEvent.zipcode}
-                      // volNum={volunteerEvent.volNum}
-                      // link={volunteerEvent.link}
-                      />
-                    );
-                  })} */}
-                </ResultsList>
               </Col>
             </Row>
           </Container>
