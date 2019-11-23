@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
 import * as filestack from 'filestack-js';
 
 
@@ -38,22 +37,7 @@ class FileUploader extends Component {
           client.picker(options).open()
 
 
-
-
-         
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -73,15 +57,13 @@ class FileUploader extends Component {
                     </div>
 
                 </div>
-                <div className="row">
+               
                     <div className="text-center">
                         <button type="button" id="upload-btn" className="btn btn-filestack"  onClick={this.handleFileClick}>
 
-                            <i className="glyphicon glyphicon-upload"></i> Upload
-          </button>
-                    </div>
+                            <i className="glyphicon glyphicon-upload"></i> Upload  </button>
+                    
                 </div>
-
 
             </div>
 
