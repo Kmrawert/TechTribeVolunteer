@@ -16,53 +16,66 @@ export function ResultsList({ children }) {
   return <ul className="list-group">{children}</ul>;
 }
 
-export function GridHeader({ }) {
-  return (
-    <Container>
-      <Row>
-        <Col size="xs-2 sm-2" />
-        <Col size="xs-6 sm-6" >Event Title</Col>
-        <Col size="xs-4 sm-4"> Date</Col>
-        <Col size="xs-4 sm-4"> Organization</Col>
-      </Row>
-    </Container>
-  )
-}
+// export function GridHeader({ }) {
+//   return (
+//     <Container>
+//       <Row>
+//         <Col size="xs-2 sm-2" />
+//         <Col size="xs-6 sm-6" >Event Title</Col>
+//         <Col size="xs-4 sm-4"> Date</Col>
+//         <Col size="xs-4 sm-4"> Organization</Col>
+//       </Row>
+//     </Container>
+//   )
+// }
 
 export function ResultsListItem({ event }) {
   return (
     <li className="list-group-item">
       <Container>
-        <GridHeader />
+        {/* <GridHeader /> */}
         <Row>
-          <Col size="xs-2 sm-2" />
-          <Col size="xs-6 sm-6">
-            <p> {event.title} </p>
-            {/* <p> Description: {description} </p> */}
-            {/* <p> Time: {eventTime} </p>
-            <p> Organization: {organization} </p>
-            <p> Experience: {experience} </p>
-            <p> Zip Code: {zipcode} </p>
-            <p> Number of Volunteers Needed: {volNum} </p>
-            <p> For Additional Information: {link} </p> */}
-            {/* <a rel="noreferrer noopener" target="_blank" href={}>
-              Details
-            </a>
-            <a rel="noreferrer noopener" target="_blank" href={href}>
-              Volunteer! 
-            </a> */}
+          {/* <Col size="xs-2 sm-2" /> */}
+          <Col size="xs-4 sm-4">
+            <p className="listWrap">Event Title: {event.title} </p>
+            
           </Col>
           <Col size="xs-4 sm-4">
-            <p> {isoToLocaleDate(event.eventdate)} </p>
+            <p className="listWrap">Event Description: {event.description} </p>
           </Col>
           <Col size="xs-4 sm-4">
-            <p> {event.organization} </p>
+            <p>Organization: {event.organization} </p>
+            
+          </Col>
+        </Row>
+        <Row>
+          <Col size="xs-4 sm-4">
+            <p>Experience: {event.experience}</p>
+              
           </Col>
           <Col size="xs-4 sm-4">
-            <p> {event.description} </p>
+            <p>Zipcode: {event.zipcode}</p>
+            
+          </Col>
+          <Col size="xs-4 sm-4">
+            <p>Spots: {event.numberofspots}</p>
+             
+          </Col>
+        </Row>
+        <Row>
+          <Col size="xs-4 sm-4">
+            <p>Link: {event.link}</p>
+            
+          </Col>
+          <Col size="xs-4 sm-4">
+            <p>Date: {isoToLocaleDate(event.eventdate)}
+</p>
+          </Col>
+          <Col size="xs-4 sm-4">
+            <p>Time: {event.eventtime}</p>
           </Col>
         </Row>
       </Container>
     </li>
-    );
-  }
+  );
+}

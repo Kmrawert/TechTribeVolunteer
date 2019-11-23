@@ -27,9 +27,9 @@ class UserProfile extends Component {
             <div className="col-xs-12 col-sm-6">
                <ul className="list-group">
                   <li className="list-group-item">Name: John Doe</li>
-                  <li className="list-group-item">{getUsername()}</li>
+                  <li className="list-group-item"><i className="fa fa-envelope"></i> {getUsername()}</li>
                   <li className="list-group-item"><i className="fa fa-phone"></i> 000-000-0000 </li>
-      <li className="list-group-item"><i className="fa fa-envelope"></i> {getUsername()}</li>
+      
                   <li className="list-group-item">
                   </li>
                </ul>
@@ -42,6 +42,7 @@ class UserProfile extends Component {
                <div className="col-lg-6">
                   <div className="bs-callout bs-callout-danger">
                      <h4>Current Events</h4>
+                     
                      <table className="table table-hover">
                         <thead>
                            <tr>
