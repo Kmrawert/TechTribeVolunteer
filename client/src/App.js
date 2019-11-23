@@ -45,7 +45,7 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    API.saveEvent(this.state.eventInfo)
+    // API.saveEvent(this.state.eventInfo)
     this.setState({zipcode: Number(this.state.zipcodeString)})
     console.log('zipcode', this.state.zipcode)
   };
@@ -132,8 +132,8 @@ class App extends Component {
               <Col size="xs-12">
                 <div id='routes'>
                   <Route exact path="/" component={() => <Home zipcode={this.state.zipcode} />} />
+                  <Route path="/home" componenet={() => <Home zipcode={this.state.zipcode}/> } />
                   <Route path="/login" render={() => <Login updateUser={this.updateUser} />} />
-                  {/* <Route exact path="/Login" component={Login} /> */}
                   <Route exact path="/EventForm" component={EventForm} />
                   {/* <Route exact path="/UserProfile" component={UserProfile} /> */}
                   <Route
