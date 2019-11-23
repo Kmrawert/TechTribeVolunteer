@@ -6,14 +6,14 @@ import "./style.css";
 // The "role" and "aria label" are there to identify the element's purpose as an image for accessibility purposes
 function Thumbnail({ src }) {
   return (
+      < div className = "img-wrapper">
     <div
-      className="thumbnail"
+      className="img-holder"
       role="img"
       
-      style={{
-        backgroundImage: `url(${src})`
-      }}
+      
     />
+    </div>
   );
 }
 

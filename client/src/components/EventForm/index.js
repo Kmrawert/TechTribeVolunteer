@@ -105,7 +105,8 @@ class EventForm extends Component {
           </label> <br />
           <input type="submit" value="Submit" style={{ float: "right", marginBottom: 10 }} />
         </form>
-      </div>
+        </div>
+      
     )
   }
 }

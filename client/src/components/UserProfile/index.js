@@ -52,21 +52,21 @@ class UserProfile extends Component {
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                            <tr>
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                            <tr>
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                         </tbody>
@@ -94,21 +94,21 @@ class UserProfile extends Component {
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                            <tr>
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                            <tr>
                               <th scope="row">Pups R Us</th>
                               <td>Chicago, Il</td>
                               <td>1/1/2020</td>
-                              <td>15</td>
+                              <td class="text-center">15</td>
                               <td> <button type="button" className="btn btn-primary btn-sm">Details</button></td>
                            </tr>
                         </tbody>
