@@ -14,7 +14,7 @@ class Home extends Component {
 
     let url = '/api/events'
 
-    if(this.props.zipcode) {
+    if (this.props.zipcode) {
       url += `?zipcode=${this.props.zipcode}`
     }
     axios.get(url)
@@ -34,8 +34,8 @@ class Home extends Component {
     return (
       <div id="resultsDisplay">
         <ResultsList>
-                 {/* // <div id="home"> */}
-        {/* <table class="table">
+          {/* // <div id="home"> */}
+          {/* <table class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col"></th>
@@ -69,7 +69,8 @@ class Home extends Component {
    
           </tbody>
          </table> */}
-          {this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)}
+          {/* {this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)} */}
+          {!Array.isArray(this.state.events) || this.state.events.length === 0 ? <h1>no resultss</h1> : this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)}
         </ResultsList>
       </div>
     )

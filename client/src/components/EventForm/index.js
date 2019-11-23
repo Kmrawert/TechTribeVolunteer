@@ -42,18 +42,8 @@ class EventForm extends Component {
       numberofspots: this.state.volNum,
       link: this.state.link
     }
-    // render() {
-    //   if (this.state.redirectTo) {
-    //     return <Redirect to={{ pathname: this.state.redirectTo }} />;
-    //   } else {
-    //     return (
-    //         <button onClick={this.handleSubmit.bind(this)}>Sign Up</button>
-    //     );
-    //   }
-    // }
-    // };
 
-    this.props.history.push("/home")
+    // this.props.history.push("/home")
 
     API.saveEvent(userInput)
       .then(res => {
