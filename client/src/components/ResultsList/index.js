@@ -18,28 +18,6 @@ export function ResultsList({ children }) {
 
 export function GridHeader({ }) {
   return (
-<<<<<<< HEAD
-  <Container>
-    <Row>
-      <Col size="xs-2 sm-2" />
-      <Col size="xs-6 sm-6" >Event Title</Col>
-      <Col size="xs-4 sm-4"> Date</Col>
-    </Row>
-  </Container>
-   ) }
-    
-export function ResultsListItem({
-      eventTitle,
-      eventDate,
-  // description,
-  // eventTime,
-  // organization,
-  // experience,
-  // zipcode,
-  // volNum,
-  // link
-}) {
-=======
     <Container>
       <Row>
         <Col size="xs-2 sm-2" />
@@ -52,7 +30,6 @@ export function ResultsListItem({
 }
 
 export function ResultsListItem({ event }) {
->>>>>>> 4efcdc675f19cf5b27260cab9281cfbf669e8297
   return (
     <li className="list-group-item">
       <Container>

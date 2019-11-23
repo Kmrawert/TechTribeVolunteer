@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../Nav";
 import "../UserProfile/style.css"
 import FileUploader from "../FileUploader"
+import { ResultsList, ResultsListItem } from "../ResultsList";
 
 class UserProfile extends Component {
    render() {

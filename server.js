@@ -19,18 +19,12 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/volunteer";
 mongoose.connect(MONGODB_URI);
 
 app.use(morgan("dev"));
-app.use(cors())
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.use(cookieParser())
-app.use(fileUpload())
+// app.use(bodyParser.json());
 
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
@@ -103,9 +97,7 @@ app.use(express.json());
 //   app.use(express.static("client/build"));
 // }
 
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static("client/build"));
 }
 
