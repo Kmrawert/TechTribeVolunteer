@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 
 class EventForm extends Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class EventForm extends Component {
       experience: "",
       zipcode: "",
       volNum: "",
-      link: ""
+      link: "",
+      redirectTo: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,13 +41,24 @@ class EventForm extends Component {
       zipcode: this.state.zipcode,
       numberofspots: this.state.volNum,
       link: this.state.link
-    };
+    }
+    // render() {
+    //   if (this.state.redirectTo) {
+    //     return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    //   } else {
+    //     return (
+    //         <button onClick={this.handleSubmit.bind(this)}>Sign Up</button>
+    //     );
+    //   }
+    // }
+    // };
+
+    this.props.history.push("/home")
 
     API.saveEvent(userInput)
       .then(res => {
         console.log(res);
         console.log(res.data);
-        alert('asdasdasd')
       })
   };
 

@@ -42,27 +42,6 @@ class App extends Component {
       );
   };
 
-  // getAllEvents = () => {
-
-  //   API.getEvents()
-  //     .then((res) => {
-  //       console.log(res.data)
-  //       this.setState({ volunteerEvents: res.data })
-  //     })
-
-  //     .catch((err) => {
-  //       console.error(err)
-  //       this.setState({
-  //         volunteerEvents: []
-  //       })
-  //     })
-  // }
-
-  // handleEventDisplay = event => {
-  //   event.preventDefault();
-  //   this.getAllEvents();
-  // };
-
   handleFormSubmit = event => {
     event.preventDefault();
 
