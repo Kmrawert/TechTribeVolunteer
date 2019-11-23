@@ -6,36 +6,11 @@ body{
      
   @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
   
-  .btn.btn-social{
-    color: white;
-    opacity:0.9;
-  }
-  .btn.btn-social:hover {
-    color: white;
-      opacity:1;
-  }
-  .btn.btn-facebook {
-  background-color: #3b5998;
-  opacity:0.9;
-  }
-  .btn.btn-twitter {
-  background-color: #00aced;
-  opacity:0.9;
-  }
-  .btn.btn-linkedin {
-  background-color:#0e76a8;
-  opacity:0.9;
-  }
-  .btn.btn-github{
-    background-color:#000000;
-    opacity:0.9;
-  }
-  .btn.btn-google {
-    background-color: #c32f10;
-    opacity: 0.9;
-  }
+  
+ 
+  
   .btn.btn {
-    background-color: gray;
+    background-color: green;
   }
   
  .table{

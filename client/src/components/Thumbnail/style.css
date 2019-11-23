@@ -1,14 +1,9 @@
-div.thumbnail {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  padding-top: 0%;
-  max-width: 450px;
-  max-height: 250px;
+.img-wrapper{
+  width:100%;
+  max-width:1000px;
 }
 
-.img-responsive{
+.img-holder{
   width:100%;
   padding-top:56.25%;
   background:red;
@@ -17,3 +12,5 @@ div.thumbnail {
   background-position: center;
   background-size: cover;
 }
+
+
