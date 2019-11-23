@@ -70,7 +70,7 @@ class Home extends Component {
           </tbody>
          </table> */}
           {/* {this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)} */}
-          {!Array.isArray(this.state.events) || this.state.events.length === 0 ? <h1>no resultss</h1> : this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)}
+          {!Array.isArray(this.state.events) || this.state.events.length === 0 ? <h2>no results</h2> : this.state.events && this.state.events.map(event => <ResultsListItem event={event} />)}
         </ResultsList>
       </div>
     )
